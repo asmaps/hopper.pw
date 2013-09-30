@@ -18,7 +18,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'nsupdate.sqlite',                      # Or path to database file if using sqlite3.
+        'NAME': 'hopper.sqlite',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -28,7 +28,7 @@ DATABASES = {
 }
 
 SERVER = '85.10.192.104'  # ns1.thinkmo.de (master / dynamic upd server for nsupdate.info)
-BASEDOMAIN = 'nsupdate.info'
+BASEDOMAIN = 'www.hopper.pw'
 
 NONEXISTING_HOST = 'nonexisting.' + BASEDOMAIN
 WWW_HOST = BASEDOMAIN
@@ -44,7 +44,7 @@ UPDATE_KEY = 'YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYW
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['nsupdate.info', 'www.nsupdate.info']
+ALLOWED_HOSTS = [WWW_HOST, WWW_IPV4_HOST, WWW_IPV6_HOST]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
