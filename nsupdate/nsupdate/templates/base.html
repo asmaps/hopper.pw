@@ -5,13 +5,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
-        <meta name="author" content="nsupdate.info team">
+        <meta name="author" content="hopper.pw team">
 
-        <title>{% block title %}nsupdate.info{% endblock %}</title>
+        <title>{% block title %}hopper.pw{% endblock %}</title>
 
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-        <link href="{% static 'css/nsupdate.css' %}" rel="stylesheet">
+        <link href="{% static 'css/hopper.css' %}" rel="stylesheet">
         <link rel="icon" type="image/png" href="{% static 'favicon.png' %}" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     </head>
@@ -25,7 +25,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{% url 'home' %}"><span style="color: #00ba00">⬥</span> nsupdate.info</a>
+                    <a class="navbar-brand" href="{% url 'home' %}"><span style="color: #00ba00">⬥</span> hopper.pw</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -87,9 +87,9 @@
         <div class="footer">
             <div class="container">
             <p class="text-muted credit">
-                Sourcecode available at <a href="https://github.com/asmaps/nsupdate.info">GitHub</a>
+                Sourcecode available at <a href="https://github.com/asmaps/hopper.pw">GitHub</a>
                 -
-                developed by <a href="https://github.com/asmaps/">Arne Schauf</a>, 
+                originally developed by <a href="https://github.com/asmaps/">Arne Schauf</a>, 
                 <a href="https://github.com/Samuirai/">Fabian Faessler</a>, 
                 <a href="https://github.com/ThomasWaldmann/">Thomas Waldmann</a>
                 during the <a href="http://djangodash.com/teams/c4/nsupdateinfo/">Django Dash 2013</a>.
@@ -98,26 +98,6 @@
             </div>
         </div>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        {% if ENABLE_PIWIK_PRODUCTION %}
-            <!-- Piwik -->
-            <script type="text/javascript">
-              var _paq = _paq || [];
-              _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-              _paq.push(["setCookieDomain", "*.nsupdate.info"]);
-              _paq.push(["setDomains", ["*.nsupdate.info"]]);
-              _paq.push(["trackPageView"]);
-              _paq.push(["enableLinkTracking"]);
-
-              (function() {
-                var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.thelabmill.de/";
-                _paq.push(["setTrackerUrl", u+"piwik.php"]);
-                _paq.push(["setSiteId", "11"]);
-                var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-                g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-              })();
-            </script>
-            <!-- End Piwik Code -->
-        {% endif %}
         <div style="display: none">
             <img id="v4_img" />
             <img id="v6_img" />
