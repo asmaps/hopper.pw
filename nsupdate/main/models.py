@@ -43,7 +43,6 @@ class Domain(models.Model):
         max_length=256,
         help_text="An IP where the nsupdates for this domain will be sent to")
     nameserver_update_key = models.CharField(max_length=256)
-    nameserver_update_key_name = models.CharField(max_length=256)
     nameserver_update_algorithm = models.CharField(
         max_length=256, choices=UPDATE_ALGORITHMS)
 

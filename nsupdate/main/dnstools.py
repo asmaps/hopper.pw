@@ -158,7 +158,8 @@ def get_ns_info(origin):
     """
     from .models import Domain
     d = Domain.objects.get(domain=origin.rstrip('.'))
-    return d.nameserver_ip, d.nameserver_update_key, d.nameserver_update_algo
+    algorithm = getattr(dns.tsig, d.nameserver_update_algorithm)
+    return d.nameserver_ip, d.nameserver_update_key, algorithm
 
 
 def update_ns(fqdn, rdtype='A', ipaddr=None, origin=None, action='upd', ttl=60):
