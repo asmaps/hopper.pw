@@ -154,13 +154,12 @@ def get_ns_info(origin):
     to update the zone and the key algorithm used.
 
     :param origin: zone we are dealing with, must be with trailing dot
-    :return: master nameserver, update key
+    :return: master nameserver, update key, update algo
     """
-    # later look this up from Domain model: domain+'.': nameserver_ip, nameserver_update_key
-    ns_info = {
-        settings.BASEDOMAIN + '.': (settings.SERVER, settings.UPDATE_KEY, settings.UPDATE_ALGO),
-    }
-    return ns_info[origin]
+    from .models import Domain
+    d = Domain.objects.get(domain=origin.rstrip('.'))
+    algo = getattr(dns.tsig, settings.UPDATE_ALGO)  # TODO: d.nameserver_update_algo
+    return d.nameserver_ip, d.nameserver_update_key, algo
 
 
 def update_ns(fqdn, rdtype='A', ipaddr=None, origin=None, action='upd', ttl=60):
