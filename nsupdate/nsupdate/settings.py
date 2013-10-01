@@ -38,8 +38,6 @@ WWW_IPV6_IP = '2001:41d0:8:e00e::1'
 
 BAD_AGENTS = set()  # useragent blacklist for /nic/update service
 
-UPDATE_ALGO = 'HMAC_SHA512'
-
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [WWW_HOST, WWW_IPV4_HOST, WWW_IPV6_HOST]

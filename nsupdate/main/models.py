@@ -32,11 +32,20 @@ def domain_blacklist_validator(value):
             raise ValidationError(u'This domain is not allowed')
 
 
+UPDATE_ALGORITHMS = (
+    ('HMAC_SHA512', 'HMAC_SHA512'),
+)
+
+
 class Domain(models.Model):
     domain = models.CharField(max_length=256, unique=True)
-    nameserver_ip = models.IPAddressField(max_length=256,
+    nameserver_ip = models.IPAddressField(
+        max_length=256,
         help_text="An IP where the nsupdates for this domain will be sent to")
     nameserver_update_key = models.CharField(max_length=256)
+    nameserver_update_key_name = models.CharField(max_length=256)
+    nameserver_update_algorithm = models.CharField(
+        max_length=256, choices=UPDATE_ALGORITHMS)
 
     last_update = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
