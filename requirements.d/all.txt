@@ -3,3 +3,4 @@ django==1.5.4
 django-bootstrap-form
 django-registration
 South
+django-extensions

@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     'main',
     'bootstrapform',
     'registration',
+    'django_extensions',
 )
 
 # A sample logging configuration. The only tangible logging

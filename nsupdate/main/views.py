@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.db.models import Q
 from django.views.generic import TemplateView, CreateView
 from django.views.generic.edit import UpdateView, DeleteView
 from django.http import HttpResponse, HttpResponseRedirect
@@ -11,7 +12,7 @@ import dns.inet
 import dnstools
 
 from main.forms import CreateHostForm, EditHostForm
-from main.models import Host
+from main.models import Host, Domain
 
 
 class GenerateSecretView(UpdateView):
@@ -84,6 +85,12 @@ class OverviewView(CreateView):
 
     def get_success_url(self):
         return reverse('generate_secret_view', args=(self.object.pk,))
+
+    def get_form(self, form_class):
+        form = super(OverviewView, self).get_form(form_class)
+        form.fields['domain'].queryset = Domain.objects.filter(
+            Q(created_by=self.request.user)|Q(available_for_everyone=True))
+        return form
 
     def form_valid(self, form):
         self.object = form.save(commit=False)

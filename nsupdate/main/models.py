@@ -45,6 +45,7 @@ class Domain(models.Model):
     nameserver_update_key = models.CharField(max_length=256)
     nameserver_update_algorithm = models.CharField(
         max_length=256, choices=UPDATE_ALGORITHMS)
+    available_for_everyone = models.BooleanField(default=False)
 
     last_update = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
