@@ -93,13 +93,13 @@ class Host(models.Model):
 
     def getIPv4(self):
         try:
-            return dnstools.query_ns(self.get_fqdn(), 'A')
+            return dnstools.query_ns(self.get_fqdn(), 'A', origin=self.domain.domain)
         except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers):
             return ''
 
     def getIPv6(self):
         try:
-            return dnstools.query_ns(self.get_fqdn(), 'AAAA')
+            return dnstools.query_ns(self.get_fqdn(), 'AAAA', origin=self.domain.domain)
         except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers):
             return ''
 
@@ -123,6 +123,7 @@ class Host(models.Model):
 
 def post_delete_host(sender, **kwargs):
     obj = kwargs['instance']
-    dnstools.delete(obj.get_fqdn())
+    dnstools.delete(obj.get_fqdn(), origin=obj.domain.domain)
 
 post_delete.connect(post_delete_host, sender=Host)
+

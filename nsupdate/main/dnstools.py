@@ -15,7 +15,8 @@ import dns.tsig
 import dns.tsigkeyring
 
 import logging
-logger = logging.getLogger('main.dnstools')
+logger = logging.getLogger(__name__)
+
 
 class SameIpError(ValueError):
     """
@@ -35,7 +36,7 @@ def get_rdtype(ipaddr):
     return 'A' if af == dns.inet.AF_INET else 'AAAA'
 
 
-def add(fqdn, ipaddr, ttl=60):
+def add(fqdn, ipaddr, ttl=60, origin=None):
     """
     intelligent dns adder - first does a lookup on the master server to find
     the current ip and only sends an 'add' if there is no such entry.
@@ -48,7 +49,7 @@ def add(fqdn, ipaddr, ttl=60):
     """
     rdtype = get_rdtype(ipaddr)
     try:
-        current_ipaddr = query_ns(fqdn, rdtype)
+        current_ipaddr = query_ns(fqdn, rdtype, origin=origin)
         # check if ip really changed
         ok = ipaddr != current_ipaddr
         action = 'upd'
@@ -60,12 +61,12 @@ def add(fqdn, ipaddr, ttl=60):
         # only send an add/update if the ip really changed as the update
         # causes write I/O on the nameserver and also traffic to the
         # dns slaves (they get a notify if we update the zone).
-        update_ns(fqdn, rdtype, ipaddr, action=action, ttl=ttl)
+        update_ns(fqdn, rdtype, ipaddr, action=action, ttl=ttl, origin=origin)
     else:
         raise SameIpError
 
 
-def delete(fqdn, rdtype=None):
+def delete(fqdn, rdtype=None, origin=None):
     """
     dns deleter
 
@@ -78,10 +79,10 @@ def delete(fqdn, rdtype=None):
     else:
         rdtypes = ['A', 'AAAA']
     for rdtype in rdtypes:
-        update_ns(fqdn, rdtype, action='del')
+        update_ns(fqdn, rdtype, action='del', origin=origin)
 
 
-def update(fqdn, ipaddr, ttl=60):
+def update(fqdn, ipaddr, ttl=60, origin=None):
     """
     intelligent dns updater - first does a lookup on the master server to find
     the current ip and only sends a dynamic update if we have a different ip.
@@ -93,7 +94,7 @@ def update(fqdn, ipaddr, ttl=60):
     """
     rdtype = get_rdtype(ipaddr)
     try:
-        current_ipaddr = query_ns(fqdn, rdtype)
+        current_ipaddr = query_ns(fqdn, rdtype, origin=origin)
         # check if ip really changed
         ok = ipaddr != current_ipaddr
     except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer):
@@ -103,7 +104,7 @@ def update(fqdn, ipaddr, ttl=60):
         # only send an update if the ip really changed as the update
         # causes write I/O on the nameserver and also traffic to the
         # dns slaves (they get a notify if we update the zone).
-        update_ns(fqdn, rdtype, ipaddr, action='upd', ttl=ttl)
+        update_ns(fqdn, rdtype, ipaddr, action='upd', ttl=ttl, origin=origin)
     else:
         raise SameIpError
 

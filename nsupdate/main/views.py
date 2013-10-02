@@ -97,7 +97,11 @@ class OverviewView(CreateView):
         self.object = form.save(commit=False)
         self.object.created_by = self.request.user
         self.object.save()
-        dnstools.add(self.object.get_fqdn(), self.request.META['REMOTE_ADDR'])
+        dnstools.add(
+            self.object.get_fqdn(),
+            self.request.META['REMOTE_ADDR'],
+            origin=self.object.domain.domain
+        )
         messages.add_message(self.request, messages.SUCCESS, 'Host added.')
         return HttpResponseRedirect(self.get_success_url())
 

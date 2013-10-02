@@ -207,9 +207,10 @@ def _update(hostname, ipaddr):
         return False
     hosts[0].poke()
     try:
-        update(hostname, ipaddr)
+        update(hostname, ipaddr, origin=hosts[0].domain.domain)
         logger.info('%s - received good update -> ip: %s' % (hostname, ipaddr, ))
         return Response('good %s' % ipaddr)
     except SameIpError:
         logger.warning('%s - received no-change update, ip: %s' % (hostname, ipaddr, ))
         return Response('nochg %s' % ipaddr)
+
