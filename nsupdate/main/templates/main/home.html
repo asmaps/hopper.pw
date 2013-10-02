@@ -7,7 +7,7 @@
   <div class="jumbotron">
       <div class="container">
         {% if request.session.ipv4 %}
-                <h1>{{request.session.ipv4}}</h1>
+            <h1>{{request.session.ipv4}}</h1>
         {% endif %}
         {% if request.session.ipv6 %}
             <h2>{{request.session.ipv6}}</h2>
