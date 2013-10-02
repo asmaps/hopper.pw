@@ -140,14 +140,22 @@ def parse_name(fqdn, origin=None):
     :param origin: origin zone (optional, str)
     :return: origin, relative name (both dns.name.Name)
     """
-    from .models import Domain
-    for d in Domain.objects.all():
-        origin = d.domain[0]
-        if not origin[0] == '.':
-            origin = '.' + origin
-        i = fqdn.rfind(origin)
-        if not i == -1:
-            return dns.name.from_text(d.domain), dns.name.from_text(fqdn[:i + 1])
+#    from .models import Domain
+#    for d in Domain.objects.all():
+#        origin = d.domain[0]
+#        if not origin[0] == '.':
+#            origin = '.' + origin
+#        i = fqdn.rfind(origin)
+#        if not i == -1:
+#            return dns.name.from_text(d.domain), dns.name.from_text(fqdn[:i + 1])
+    fqdn = dns.name.from_text(fqdn)
+    if origin is None:
+        origin = dns.resolver.zone_for_name(fqdn)
+        rel_name = fqdn.relativize(origin)
+    else:
+        origin = dns.name.from_text(origin)
+        rel_name = fqdn - origin
+    return origin, rel_name
 
 
 def get_ns_info(origin):
@@ -195,4 +203,3 @@ def update_ns(fqdn, rdtype='A', ipaddr=None, origin=None, action='upd', ttl=60):
         action, name, origin, rdtype, ipaddr))
     response = dns.query.tcp(upd, nameserver)
     return response
-
