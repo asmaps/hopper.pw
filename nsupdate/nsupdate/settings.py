@@ -186,6 +186,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'main.dnstools': {
+            'handlers': ['stderr', ],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'django.request': {
             'handlers': ['mail_admins', ],
             'level': 'ERROR',
