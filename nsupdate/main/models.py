@@ -40,8 +40,7 @@ UPDATE_ALGORITHMS = (
 class Domain(models.Model):
     domain = models.CharField(max_length=256, unique=True)
     nameserver_ip = models.IPAddressField(
-        max_length=256,
-        help_text="An IP where the nsupdates for this domain will be sent to")
+        max_length=256)
     nameserver_update_key = models.CharField(max_length=256)
     nameserver_update_algorithm = models.CharField(
         max_length=256, choices=UPDATE_ALGORITHMS)
@@ -56,7 +55,6 @@ class Domain(models.Model):
 
 
 class Host(models.Model):
-    """TODO: hash update_secret on save (if not already hashed)"""
     subdomain = models.CharField(max_length=256, validators=[
         RegexValidator(
             regex=r'^(([a-z0-9][a-z0-9\-]*[a-z0-9])|[a-z0-9])$',
@@ -64,7 +62,7 @@ class Host(models.Model):
         ),
         domain_blacklist_validator])
     domain = models.ForeignKey(Domain)
-    update_secret = models.CharField(max_length=256)  # gets hashed on save
+    update_secret = models.CharField(max_length=256)
     comment = models.CharField(
         max_length=256, default='', blank=True, null=True)
 

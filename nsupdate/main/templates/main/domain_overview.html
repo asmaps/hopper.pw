@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>My domains</h3>
+            <table class="table">
+            <thead><th>Domain</th><th>Nameserver IP</th><th>Update key</th><th>Algorithm</th><th>Public?</th><th>Action</th></thead>
+            {% for domain in domains %}
+                <tr>
+                    <td><b>{{ domain.domain }}</b></td>
+                    <td>{{ domain.nameserver_ip }}</td>
+                    <td>{{ domain.nameserver_update_key }}</td>
+                    <td>{{ domain.get_nameserver_update_algorithm_display }}</td>
+                    <td>{{ domain.available_for_everyone|yesno }}</td>
+                    <td>
+                        <a href="{% url 'delete_domain' domain.pk %}"><i class="icon icon-remove"></i> delete</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="6">No domains yet.</td></tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="well well-sm">
+                <h3>New Domain</h3>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="well well-sm">
+                <h3>Information</h3>
+                <p>Informational text goes here</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
