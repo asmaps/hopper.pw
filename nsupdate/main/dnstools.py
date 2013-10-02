@@ -145,7 +145,7 @@ def parse_name(fqdn, origin=None):
             origin = '.' + origin
         i = fqdn.rfind(origin)
         if not i == -1:
-            return dns.name.from_text(origin), dns.name.from_text(fqdn[:i])
+            return dns.name.from_text(d.domain), dns.name.from_text(fqdn[:i])
 
 
 def get_ns_info(origin):
