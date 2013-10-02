@@ -205,7 +205,10 @@ ACCOUNT_ACTIVATION_DAYS = 7
 
 LOGIN_REDIRECT_URL = '/overview/'
 
+ENABLE_TRACKING = False
+
 try:
     from .local_settings import *
 except ImportError:
     pass
+

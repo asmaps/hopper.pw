@@ -110,5 +110,8 @@
                 $(setTimeout("insert_src()", 1000));
             </script>
         </div>
+        {% if ENABLE_TRACKING %}
+            {% include "tracking.html" %}
+        {% endif %}
     </body>
 </html>
