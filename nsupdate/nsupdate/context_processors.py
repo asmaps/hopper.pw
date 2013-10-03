@@ -10,5 +10,9 @@ def add_settings(request):
         context['ENABLE_TRACKING'] = settings.ENABLE_TRACKING
     except:
         pass
+    try:
+        context['ENABLE_ADS'] = settings.ENABLE_ADS
+    except:
+        pass
     return context
 

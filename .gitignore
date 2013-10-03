@@ -2,3 +2,4 @@
 local_settings.py
 *.sqlite
 nsupdate/nsupdate/templates/tracking.html
+nsupdate/nsupdate/templates/ads/ad_*

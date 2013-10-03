@@ -50,52 +50,61 @@
 </div>
 <hr>
 <div class="row">
-        <div class="col-lg-3">
-
-            <div class="well well-sm">
-                <h3>We had a lot of fun</h3>
-                <p>
-                    <i class="icon icon-ok"></i> Free and Open-Source<br>
-                    <i class="icon icon-ok"></i> Easy to use<br>
-                    <i class="icon icon-ok"></i> Fast and Awesome<br>
-                    <i class="icon icon-ok"></i> Probably no Bugs :)<br>
-                </p>
-            </div>
-
-
-        </div>
-        <div class="col-lg-3">
-
-            <div class="well well-sm">
-                <h3>DjangoDash 2013</h3>
-                <p>
-                     This software / service was developed in under 48h for the
-                    <a href="http://djangodash.com/">Django-Dash 2013</a>.
-                </p>
+    <div class="col-lg-6">
+	{% if ENABLE_ADS %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well well-sm">
+                    {% include "ads/ad_home.html" %}
+                </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="well well-sm">
-                <h3>Screenshots</h3>
-                <a id="screenshots_url" href="{% static 'screenshots/overview.png' %}">
-                    <img id="screenshots" src="{% static 'screenshots/overview.png' %}" class="img-responsive" alt="Responsive image">
-                </a>
-                <script>
-                var id = 0;
-                var srcs = Array("{% static 'screenshots/hostview.png' %}","{% static 'screenshots/help.png' %}","{% static 'screenshots/overview.png' %}","{% static 'screenshots/generatesecret.png' %}");
-                setInterval(function(){
-                    $('#screenshots').attr('src', srcs[id]);
-                    $('#screenshots_url').attr('href', srcs[id]);
-                    id += 1;
-                    if(id>=srcs.length) {
-                        id=0;
-                    }
-                },5000);
-                    
-                </script>
+        {% endif %}
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="well well-sm">
+                    <h3>We had a lot of fun</h3>
+                    <p>
+                        <i class="icon icon-ok"></i> Free and Open-Source<br>
+                        <i class="icon icon-ok"></i> Easy to use<br>
+                        <i class="icon icon-ok"></i> Fast and Awesome<br>
+                        <i class="icon icon-ok"></i> Probably no Bugs :)<br>
+                    </p>
+                </div>
             </div>
+            <div class="col-lg-6">
+                <div class="well well-sm">
+                    <h3>DjangoDash 2013</h3>
+                    <p>
+                         This software / service was developed in under 48h for the
+                        <a href="http://djangodash.com/">Django-Dash 2013</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div class="col-lg-6">
+         <div class="well well-sm">
+             <h3>Screenshots</h3>
+             <a id="screenshots_url" href="{% static 'screenshots/overview.png' %}">
+                 <img id="screenshots" src="{% static 'screenshots/overview.png' %}" class="img-responsive" alt="Responsive image">
+             </a>
+             <script>
+             var id = 0;
+             var srcs = Array("{% static 'screenshots/hostview.png' %}","{% static 'screenshots/help.png' %}","{% static 'screenshots/overview.png' %}","{% static 'screenshots/generatesecret.png' %}");
+             setInterval(function(){
+                 $('#screenshots').attr('src', srcs[id]);
+                 $('#screenshots_url').attr('href', srcs[id]);
+                 id += 1;
+                 if(id>=srcs.length) {
+                     id=0;
+                 }
+             },5000);
+                 
+             </script>
         </div>
     </div>
+</div>
 
 <hr>
 {% endblock %}

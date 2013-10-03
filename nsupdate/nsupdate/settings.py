@@ -212,6 +212,8 @@ LOGIN_REDIRECT_URL = '/overview/'
 
 ENABLE_TRACKING = False
 
+ENABLE_ADS = False
+
 try:
     from .local_settings import *
 except ImportError:
