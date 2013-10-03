@@ -40,7 +40,15 @@
         
     </div>
     <hr>
-
+{% if ENABLE_ADS %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="well well-sm">
+                {% include "ads/ad_leaderboard.html" %}
+            </div>
+	</div>
+    </div>
+{% endif %}
     <div class="row">
         <div class="col-lg-4">
             <div class="well well-sm">
