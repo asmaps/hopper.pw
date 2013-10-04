@@ -1,3 +1,4 @@
 *.pyc
 local_settings.py
 *.sqlite
+nsupdate/nsupdate/templates/ads/ad_header.html
