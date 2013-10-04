@@ -26,21 +26,21 @@
 
 <div class="row">
     <div class="col-sm-4" style="text-align: center">
-        <h1><i class="icon-globe icon-3x"></i></h1>
+        <h1><i class="icon-globe icon-3x" style="color: #39b3d7;"></i></h1>
         <h3>World Wide Web</h3>
         <p>
             hopper.pw is a <a href="https://github.com/asmaps/hopper.pw">free and open-source</a> dynamic DNS service with IPv4 and IPv6 support.
         </p>
     </div>
     <div class="col-sm-4" style="text-align: center">
-        <h1><i class="icon-cogs icon-3x"></i></h1>
+        <h1><i class="icon-cogs icon-3x" style="color: #39b3d7;"></i></h1>
         <h3>Awesomeness</h3>
         <p>
             Powered by Python, the magical Django Pony and a stupid three columned icon landing page.
         </p>
     </div>
     <div class="col-sm-4" style="text-align: center">
-        <h1><i class="icon-trophy icon-3x"></i></h1>
+        <h1><i class="icon-trophy icon-3x" style="color: #39b3d7;"></i></h1>
         <h3>The Trophy Is A Lie</h3>
         <p>
             nsupdate.info is winner of the <a href="http://djangodash.com/">Django-Dash</a> 2013 with the highest score in the history of the competition.
@@ -53,7 +53,7 @@
 	{% if ENABLE_ADS %}
         <div class="row">
             <div class="col-lg-12">
-                <div class="well well-sm">
+                <div class="">
                     {% include "ads/ad_home.html" %}
                 </div>
             </div>
@@ -61,7 +61,7 @@
         {% endif %}
         <div class="row">
             <div class="col-lg-6">
-                <div class="well well-sm">
+                <div class="">
                     <h3>We had a lot of fun</h3>
                     <p>
                         <i class="icon icon-ok"></i> Free and Open-Source<br>
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="well well-sm">
+                <div class="">
                     <h3>DjangoDash 2013</h3>
                     <p>
                          This software / service was developed in under 48h for the
@@ -83,10 +83,10 @@
         </div>
      </div>
      <div class="col-lg-6">
-         <div class="well well-sm">
+         <div class="">
              <h3>Screenshots</h3>
              <a id="screenshots_url" href="{% static 'screenshots/overview.png' %}">
-                 <img id="screenshots" src="{% static 'screenshots/overview.png' %}" class="img-responsive" alt="Responsive image">
+                 <img id="screenshots" src="{% static 'screenshots/overview.png' %}" class="img-responsive img-thumbnail" alt="Responsive image">
              </a>
              <script>
              var id = 0;
@@ -99,7 +99,7 @@
                      id=0;
                  }
              },5000);
-                 
+
              </script>
         </div>
     </div>
