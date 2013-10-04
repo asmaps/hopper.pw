@@ -1,15 +1,38 @@
 {% extends "registration/registration_base.html" %}
 {% load i18n %}
 {% load bootstrap %}
-{% block title %}{% trans "Register for an account" %}{% endblock %}
+{% block title %}{{ block.super }} - Sign up{% endblock %}
 {% block content %}
 <div class="row">
-  <div class="col-lg-4">
-    <h1>Register new account</h1>
-    <form method='post' action=''>{% csrf_token %}
-        {{ form|bootstrap }}
-        <button type="submit" class="btn btn-primary">{% trans "Send activation email" %}</button>
-    </form>
-  </div>
+    <div class="col-lg-4">
+        <h1>Sign up</h1>
+        <div class="indent">
+            <form method='post' action=''>{% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" class="pull-right btn btn-primary">{% trans "Send activation email" %}</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-4">
+        <h2>Why do I need an account?</h2>
+        <div class="indent">
+            <p>In order to use the service you have to create an account.</p>
+            <p>
+                But don't worry your data is <strong>only used for internal purposes</strong>!<br>
+                It will not be sold, used to send spam or abused in any other way.
+            </p>
+        </div>
+        <hr>
+        <h2>What does it cost?</h2>
+        <div class="indent">
+            <h4><strong>It's free!</strong></h4>
+            <p>
+                The use of hopper.pw is completely free of charge!<br>
+                To keep this service up and running consider making a donation or support us via flattr. For more information about this visit the <a href="{% url 'about' %}">about page</a>.
+            </p>
+        </div>
+    </div>
 </div>
 {% endblock %}

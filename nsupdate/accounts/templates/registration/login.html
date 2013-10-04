@@ -3,6 +3,7 @@
 {% block title %}{% trans "Login" %}{% endblock %}
 {% block content %}
 
+<h1>Please log in</h1>
 {% if form.errors %}
 <p>{% blocktrans %}Your username and password didn't match. Please try again.{% endblocktrans %}</p>
 {% endif %}
@@ -11,13 +12,17 @@
     <form method="post" action="{% url 'auth_login' %}">
     {% csrf_token %}
     {{ form|bootstrap }}
-    <p><a href="{% url 'auth_password_reset' %}">Forgot</a> your password?
-        <a href="{% url 'registration_register' %}">Need an account</a>?</p>
-
-    <button type="submit" class="btn btn-primary">login</button>
+    <p><a href="{% url 'auth_password_reset' %}">Forgot</a> your password?</p>
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary">log in</button>
+    </div>
     <input type="hidden" name="next" value="{{ next }}" />
     </form>
   </div>
 </div>
-
+<hr>
+<h3>Don't have an account yet?</h3>
+<div style="margin:20px">
+    <a class="btn btn-lg btn-success" href="{% url 'registration_register' %}">Create free account</a>
+</div>
 {% endblock %}

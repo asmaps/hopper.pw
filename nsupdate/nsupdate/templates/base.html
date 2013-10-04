@@ -46,7 +46,7 @@
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         {% if not request.user.is_authenticated %}
-                            <li{% if nav_register %} class="active"{% endif %}><a href="{% url 'registration_register' %}">Register</a></li>
+                            <li{% if nav_register %} class="active"{% endif %}><a href="{% url 'registration_register' %}">Sign up</a></li>
                             <li{% if nav_login %} class="active"{% endif %}><a href="{% url 'auth_login' %}">Login</a></li>
                         {% else %}
                             <li class="dropdown">
@@ -89,11 +89,13 @@
 
         <div class="footer">
             <div class="container">
-            <p class="text-muted credit">
+            <p class="text-muted credit pull-left">
                 Sourcecode available at <a href="https://github.com/asmaps/hopper.pw">GitHub</a>
-                {% include "footer_extra.html" %}
                 | <a href="{% url 'legal' %}">Legal notice</a>
             </p>
+            <div class="pull-right">
+                {% include "footer_extra.html" %}
+            </div>
             </div>
         </div>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
