@@ -7,11 +7,10 @@ have to click a link every 30 days to keep your domain enabled or other jokes
 like this.
 The basic software was originally developed during DjangoDash 2013 by Arne
 Schauf, Fabian Faessler and Thomas Waldmann. Hopper.pw was a fork after the dash
-to continue developing and add new features. (And an intent to get rid of all
-the "management tickets" ;-) )
+to continue developing and add new features.
 
 Like nsupdate.info, hopper.pw is is intended to be self hostable,
-but there is a free service on http://www.hopper.pw/
+but there is a free service on http://www.hopper.pw/ where you can add your own domains.
 
 
 Features (Frontend)
@@ -22,7 +21,7 @@ Features (Frontend)
 * Custom comment for each host
 * Manual IP updates via webinterface
 * Show time since last update via api
-* Add own domains (public or only for yourself)
+* Add own domains (public or only for yourself) - you will need an nsupdate-capable dns-server for that
 
 
 Features (Backend)
