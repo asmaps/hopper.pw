@@ -58,11 +58,6 @@
                 <b>your IPv4:</b> <span class="ipv4adr">{{ request.session.ipv4 }}</span> <br>
                 <b>your IPv6:</b> <span class="ipv6adr">{{ request.session.ipv6 }}</span>
             </div>
-            {% if ENABLE_ADS %}
-                <div class="text-center">
-                    {% include "ads/ad_leaderboard.html" %}
-                </div>
-            {% endif %}
         </div>
     </div>
 {% endblock %}
