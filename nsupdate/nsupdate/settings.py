@@ -3,7 +3,6 @@ Django settings for nsupdate project
 """
 
 import django.conf.global_settings as DEFAULT_SETTINGS
-import dns.tsig
 import os
 
 DEBUG = True
@@ -124,6 +123,7 @@ MIDDLEWARE_CLASSES = (
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
     'nsupdate.context_processors.add_settings',
+    'nsupdate.context_processors.site',
 )
 
 ROOT_URLCONF = 'nsupdate.urls'
