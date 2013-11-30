@@ -48,6 +48,14 @@ class AboutView(TemplateView):
         context['nav_about'] = True
         return context
 
+class ThankYouView(TemplateView):
+    template_name = "main/thank_you.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ThankYouView, self).get_context_data(*args, **kwargs)
+        context['nav_thank_you'] = True
+        return context
+
 
 class HomeView(TemplateView):
     template_name = "main/home.html"

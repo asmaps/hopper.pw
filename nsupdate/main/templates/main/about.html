@@ -2,53 +2,66 @@
 {% load bootstrap %}
 
 {% block content %}
-{% include "work_in_progress.html" %}
-<h1>About this service</h1>
-    <h2>What's this?</h2>
+<h1>About hopper.pw</h1>
+    <h3>What's this?</h3>
         <p>
-            nsupdate.info is a dynamic dns service.
+            hopper.pw is free a dynamic DNS service, as well as an
+            <a href="https://github.com/asmaps/hopper.pw"><i class="fa fa-github-square"></i>open source software project</a>.
         </p>
+    <h3>What the heck is (dynamic) DNS!?</h3>
         <p>
-            You usually need it so your router (or other dyndns2-compatible
-            client) can update a hostname, so you don't need to know or find
-            out your current IP address.
+            DNS stands for Domain Name System. This is the "adressbook" of the internet:
+            Every device in the internet has an IP address - because people are bad at
+            remembering numbers DNS translates easy to remember names to IP addresses.<br>
+            Your router at home also is a device in the internet, so it has an IP address -
+            but oh... it does NOT automatically have a DNS entry. Also your IP address
+            changes regularily. To update a DNS entry most routers have the option to report
+            their IP address to a dynamic DNS service (like hopper.pw) if it changed.
+            So you can reach your home router from the internet at everytime (e.g. for remote
+            administration or switching off the lights)
         </p>
-    <h2>Why another one?</h2>
+    <h3>Where do I get a domain (DNS entry) from?</h3>
         <p>
-            We wanted a simple, usable, secure and free dynamic dns service.
-            That is not nagging its users with spam, having
-            to log in regularly or cancelling his hosts after a short time of non-usage.
-            That is not hiding the few free features almost undiscoverable between
-            a ton of features that are only for paying users.
+            As part of the free service hopper.pw offers a subdomain (&lt;something&gt;.hopper.pw) for you.
+            If you are more advanced and have your own domain and a nsupdate-capable
+            DNS server you can add you own domain.
         </p>
-    <h2>Who are we?</h2>
+    <h3>What does it cost?</h3>
         <p>
-            Just some geeks wanting some free and open source software and a free service.
+            Nothing! The service is completely free of charge. No hidden costs!
+        </p>
+    <h3>How is hopper.pw funded?</h3>
+        <p>
+            hopper.pw is completely funded from private pocket. If you want to support
+            hopper.pw and keep the service running and help me pay for the server
+            please consider donating or pressing the flattr button.
+            If you don't want to support with money just <strong>spread the word</strong>
+            or make your own contributions to the project.
+        </p>
+    <h3>Why another dyndns service?</h3>
+        <p>
+            Yes - there are already various other dyndns services. Buuuuut...
+            We were annoyed by always having to click on a link in an email every couple of days
+            to prevent the deletion of the domain on other widely spread services and also to always
+            try finding the well hidden button for the free accounts. That's why we thought
+            "let's host our own service - can't be to difficult!". So during djangodash 2013
+            nsupdate.info was born. After the dash the project split into two forks: nsupdate.info
+            and hopper.pw.
+        </p>
+    <h3>Who are we?</h3>
+        <p>
+            We, that's <a href="https://github.com/asmaps/">Arne Schauf</a>, <a href="https://github.com/Samuirai/">Fabian Faessler</a> and <a href="https://github.com/ThomasWaldmann/">Thomas Waldmann</a>. This is the team from djangodash 2013.
+            hopper.pw is funded and maintained by Arne Schauf.
         </p>
 
-<h1>Fair use</h1>
-    <p>
-        The only thing we expect from you is fair use of this service:
-        <ul>
-            <li>Don't abuse the service in any way.</li>
-            <li>Don't update your hosts too often.</li>
-            <li>Don't do updates if your IP did not change.</li>
-            <li>Don't create lots of users or lots of hosts.</li>
-            <li>Don't use the service for any illegal or otherwise questionable purpose.</li>
-            <li>Don't spam us via e-mail.</li>
-        </ul>
-    </p>
-    <p>
-        We reserve the right to remove any account or hostname(s) that are
-        related to unfair use of the service - at any time and without prior notice.
-    </p>
+    <h3>Is it reliable?</h3>
+        <p>
+            I try to do my best to keep the service up and running.<br>
+            But: This is a free service, there are no warranties. If it breaks, it breaks.
+        </p>
 
-<h1>No warranties</h1>
-    <p>
-        This is a free service, there are no warranties. If it breaks, it breaks.
-    </p>
-
-<h1>Contact</h1>
-info AT nsupdate DOT info
-
+    <h3>Any questions left?</h3>
+        <p>
+            Please do not hesitate to contact me: contact_about@hopper.pw
+        </p>
 {% endblock %}
