@@ -3,7 +3,7 @@
 ul.socialaccount_providers li {
 display: inline;
 }
-a.socialaccount_provider,span.socialaccount_provider {
+a.socialaccount_provider {
 display: inline-block;
 width: 104px;
 height: 50px;
@@ -12,23 +12,23 @@ padding: 2px;
 }
 
 
-.socialaccount_provider.openid.google,
-.socialaccount_provider.google {
+a.socialaccount_provider.openid.google,
+a.socialaccount_provider.google {
 background: url({% static 'accounts/img/google.png' %});
 background-repeat: no-repeat;
 background-position: center;
 }
-.socialaccount_provider.facebook {
+a.socialaccount_provider.facebook {
 background: url({% static 'accounts/img/facebook.png' %});
 background-repeat: no-repeat;
 background-position: center;
 }
-.socialaccount_provider.twitter {
+a.socialaccount_provider.twitter {
 background: url({% static 'accounts/img/twitter.png' %});
 background-repeat: no-repeat;
 background-position: center;
 }
-.socialaccount_provider.github {
+a.socialaccount_provider.github {
 background: url({% static 'accounts/img/github.png' %});
 background-repeat: no-repeat;
 background-position: center;
