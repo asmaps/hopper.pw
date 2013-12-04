@@ -17,7 +17,6 @@ padding: 2px;
 background: url({% static 'accounts/img/google.png' %});
 background-repeat: no-repeat;
 background-position: center;
-border: 1px solid #DDD;
 }
 .socialaccount_provider.facebook {
 background: url({% static 'accounts/img/facebook.png' %});
