@@ -124,6 +124,13 @@ TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
     'nsupdate.context_processors.add_settings',
     'nsupdate.context_processors.site',
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
+)
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
 ROOT_URLCONF = 'nsupdate.urls'
@@ -145,13 +152,33 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'south',
+    #nsupdate apps
     'nsupdate',
     'accounts',
     'api',
     'main',
+    #django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #activate providers in your local_settings
+    #'allauth.socialaccount.providers.bitly',
+    #'allauth.socialaccount.providers.dropbox',
+    #'allauth.socialaccount.providers.facebook',
+    #'allauth.socialaccount.providers.github',
+    #'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.instagram',
+    #'allauth.socialaccount.providers.linkedin',
+    #'allauth.socialaccount.providers.openid',
+    #'allauth.socialaccount.providers.persona',
+    #'allauth.socialaccount.providers.soundcloud',
+    #'allauth.socialaccount.providers.stackexchange',
+    #'allauth.socialaccount.providers.twitch',
+    #'allauth.socialaccount.providers.twitter',
+    #other 3rd party
+    'south',
     'bootstrapform',
-    'registration',
+    #'registration',
     'django_extensions',
 )
 
@@ -208,7 +235,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
-LOGIN_REDIRECT_URL = '/overview/'
+LOGIN_URL = 'account_login'
+LOGIN_REDIRECT_URL = 'overview'
 
 ENABLE_TRACKING = False
 
@@ -219,3 +247,8 @@ try:
 except ImportError:
     pass
 
+#django-allauth
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"

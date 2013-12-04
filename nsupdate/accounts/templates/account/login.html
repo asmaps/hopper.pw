@@ -1,0 +1,55 @@
+{% extends "account/base.html" %}
+{% load i18n %}{% load bootstrap %}
+{% load static from staticfiles %}
+{% block title %}{% trans "Login" %}{% endblock %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <style type="text/css">
+        {% include 'account/css/accounts.css' %}
+    </style>
+{% endblock %}
+
+{% block content %}
+<h1>Please log in</h1>
+{% if form.errors %}
+<p>{% blocktrans %}Your username and password didn't match. Please try again.{% endblocktrans %}</p>
+{% endif %}
+<div class="row">
+    <div class="col-lg-4 well well-sm">
+        <h3>Local account</h3>
+        <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <p><a href="{% url 'account_reset_password' %}">Forgot</a> your password?</p>
+        <div class="pull-right">
+            <button type="submit" class="btn btn-primary">log in</button>
+        </div>
+        <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+    </div>
+    {% if socialaccount.providers  %}
+        <div class="col-lg-4 text-center">
+            <h1>OR</h1>
+        </div>
+        <div class="col-lg-4 well well-sm">
+            <h3>Use a third party account (OAuth)</h3>
+            <p>{% blocktrans with site.name as site_name %}Use one
+            of your existing third party accounts:{% endblocktrans %}</p>
+
+            <div class="socialaccount_ballot">
+
+              <ul class="socialaccount_providers">
+                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+              </ul>
+
+            </div>
+        </div>
+    {% endif %}
+</div>
+<hr>
+<h3>Don't have an account yet?</h3>
+<div style="margin:20px">
+    <a class="btn btn-lg btn-success" href="{% url 'account_signup' %}">Create free account</a>
+</div>
+{% endblock %}

@@ -20,6 +20,8 @@
         <link href="{% static 'css/hopper.css' %}" rel="stylesheet">
         <link rel="icon" type="image/png" href="{% static 'favicon.png' %}" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        {% block extra_head %}
+        {% endblock %}
     </head>
 
     <body>
@@ -53,8 +55,8 @@
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         {% if not request.user.is_authenticated %}
-                            <li{% if nav_register %} class="active"{% endif %}><a href="{% url 'registration_register' %}"><i class="fa fa-star-o"></i> Sign up</a></li>
-                            <li{% if nav_login %} class="active"{% endif %}><a href="{% url 'auth_login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
+                            <li{% if nav_register %} class="active"{% endif %}><a href="{% url 'account_signup' %}"><i class="fa fa-star-o"></i> Sign up</a></li>
+                            <li{% if nav_login %} class="active"{% endif %}><a href="{% url 'account_login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
                         {% else %}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ request.user.username }} <b class="caret"></b></a>
@@ -65,7 +67,7 @@
                                     {% if request.user.is_staff %}
                                         <li><a href="/admin/"><i class="fa fa-cog"></i> Admin</a></li>
                                     {% endif %}
-                                    <li><a href="{% url 'auth_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                    <li><a href="{% url 'account_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
                                 </ul>
                             </li>
                         {% endif %}

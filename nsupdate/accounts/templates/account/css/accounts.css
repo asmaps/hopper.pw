@@ -1,0 +1,44 @@
+{% load static from staticfiles %}
+
+ul.socialaccount_providers li {
+display: inline;
+}
+a.socialaccount_provider,span.socialaccount_provider {
+display: inline-block;
+width: 104px;
+height: 50px;
+margin: 10px;
+padding: 2px;
+}
+
+
+.socialaccount_provider.openid.google,
+.socialaccount_provider.google {
+background: url({% static 'accounts/img/google.png' %});
+background-repeat: no-repeat;
+background-position: center;
+border: 1px solid #DDD;
+}
+.socialaccount_provider.facebook {
+background: url({% static 'accounts/img/facebook.png' %});
+background-repeat: no-repeat;
+background-position: center;
+}
+.socialaccount_provider.twitter {
+background: url({% static 'accounts/img/twitter.png' %});
+}
+.socialaccount_provider.openid.github {
+background: url({% static 'accounts/img/github.png' %});
+}
+
+.socialaccount_ballot {
+margin: 0 0 15px 0;
+padding: 0 0 15px 0;
+float: left;
+display: block;
+position: relative;
+}
+
+.socialaccount_ballot ul {
+margin: 0;
+}
