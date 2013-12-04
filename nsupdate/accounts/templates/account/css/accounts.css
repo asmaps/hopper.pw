@@ -29,8 +29,10 @@ background: url({% static 'accounts/img/twitter.png' %});
 background-repeat: no-repeat;
 background-position: center;
 }
-.socialaccount_provider.openid.github {
+.socialaccount_provider.github {
 background: url({% static 'accounts/img/github.png' %});
+background-repeat: no-repeat;
+background-position: center;
 }
 
 .socialaccount_ballot {
