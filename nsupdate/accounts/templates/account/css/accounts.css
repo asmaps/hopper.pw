@@ -26,6 +26,8 @@ background-position: center;
 }
 .socialaccount_provider.twitter {
 background: url({% static 'accounts/img/twitter.png' %});
+background-repeat: no-repeat;
+background-position: center;
 }
 .socialaccount_provider.openid.github {
 background: url({% static 'accounts/img/github.png' %});
