@@ -3,10 +3,12 @@ from django.views.generic import TemplateView, UpdateView
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+from braces.views import LoginRequiredMixin
+
 from .forms import UserProfileForm
 
 
-class UserProfileView(UpdateView):
+class UserProfileView(LoginRequiredMixin, UpdateView):
     template_name = "accounts/user_profile.html"
     model = User
     fields = ['first_name', 'last_name']
@@ -24,7 +26,7 @@ class UserProfileView(UpdateView):
         return context
 
 
-class PasswordChangeView(TemplateView):
+class PasswordChangeView(LoginRequiredMixin, TemplateView):
     template_name = "registration/password_change.html"
 
     def get_context_data(self, *args, **kwargs):

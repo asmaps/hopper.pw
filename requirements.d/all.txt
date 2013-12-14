@@ -4,3 +4,4 @@ django-bootstrap-form
 South
 django-extensions
 django-allauth
+django-braces
