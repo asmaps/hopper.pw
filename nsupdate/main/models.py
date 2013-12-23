@@ -85,9 +85,9 @@ class Host(models.Model):
     @classmethod
     def filter_by_fqdn(cls, fqdn, **kwargs):
         # Assuming subdomain has no dots (.) the fqdn is split at the first dot
+        if not '.' in fqdn:
+            return Host.objects.none()
         splitted = fqdn.split('.', 1)
-        if not len(splitted) == 2:
-            raise NotImplemented("FQDN has to contain a dot")
         return Host.objects.filter(
             subdomain=splitted[0], domain__domain=splitted[1], **kwargs)
 
