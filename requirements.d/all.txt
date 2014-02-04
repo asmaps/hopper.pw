@@ -1,5 +1,6 @@
 dnspython
-django==1.5.4
+# 1.6 untested (but may work)
+django<1.6
 django-bootstrap-form
 South
 django-extensions
