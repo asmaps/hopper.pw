@@ -31,6 +31,10 @@ Features (Backend)
 * Nameserver updates via RFC2136
 * Nameserver to update configurable via DB for each domain
 
+Contact
+=======
+Feel free to join us via IRC on freenode in channel #hopper.pw
+
 
 Installation
 ============
