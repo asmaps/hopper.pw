@@ -12,15 +12,33 @@ from datetime import datetime
 import re
 
 
-class BlacklistedDomain(models.Model):
+class BaseModel(models.Model):
+    last_update = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+
+class BaseModelCreatedBy(BaseModel):
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+
+class BaseModelRequiredCreatedBy(BaseModel):
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL)
+
+    class Meta:
+        abstract = True
+
+
+class BlacklistedDomain(BaseModelCreatedBy):
     domain = models.CharField(
         max_length=256,
         unique=True,
         help_text='Blacklisted domain. Evaluated as regex (search).')
-
-    last_update = models.DateTimeField(auto_now=True)
-    created = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, blank=True, null=True)
 
     def __unicode__(self):
         return u"%s" % (self.domain, )
@@ -37,7 +55,7 @@ UPDATE_ALGORITHMS = (
 )
 
 
-class Domain(models.Model):
+class Domain(BaseModelCreatedBy):
     domain = models.CharField(max_length=256, unique=True)
     nameserver_ip = models.IPAddressField(
         max_length=256)
@@ -46,15 +64,11 @@ class Domain(models.Model):
         max_length=256, choices=UPDATE_ALGORITHMS)
     available_for_everyone = models.BooleanField(default=False)
 
-    last_update = models.DateTimeField(auto_now=True)
-    created = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, blank=True, null=True)
-
     def __unicode__(self):
         return u"%s" % (self.domain, )
 
 
-class Host(models.Model):
+class Host(BaseModelRequiredCreatedBy):
     subdomain = models.CharField(max_length=256, validators=[
         RegexValidator(
             regex=r'^(([a-z0-9][a-z0-9\-]*[a-z0-9])|[a-z0-9])$',
@@ -66,11 +80,7 @@ class Host(models.Model):
     comment = models.CharField(
         max_length=256, default='', blank=True, null=True)
 
-    last_update = models.DateTimeField(auto_now=True)
     last_api_update = models.DateTimeField(blank=True, null=True)
-    created = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='hosts')
 
     def __unicode__(self):
         return u"%s.%s - %s" % (

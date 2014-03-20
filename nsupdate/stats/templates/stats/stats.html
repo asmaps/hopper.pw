@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block extra_head %}
+    <link href="{% static 'stats/stats.css' %}" rel="stylesheet">
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{% static 'stats/flot/excanvas.min.js' %}"></script><![endif]-->
+{% endblock extra_head %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Statistics on hopper.pw</h1>   
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <h2>Registered users</h2>
+        <div id="user_count_graph" class="flotgraph">
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block bottom_js %}
+<script language="javascript" type="text/javascript" src="{% static 'stats/flot/jquery.flot.js' %}"></script>
+<script language="javascript" type="text/javascript" src="{% static 'stats/flot/jquery.flot.time.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        $.plot($('#user_count_graph'), 
+        [ 
+        [
+        {% for entry in user_counts %}
+        [{{ entry.created|date:"U000" }}, {{ entry.value }}]{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        ] 
+        ],
+        { 
+            xaxis: {
+                mode: "time",
+                timeformat: "%Y/%m/%d",
+                ticks: 2
+            },
+            yaxis: { min: 0 }
+        });
+    });
+</script>
+{% endblock bottom_js %}

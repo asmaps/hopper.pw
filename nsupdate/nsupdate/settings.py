@@ -157,6 +157,7 @@ INSTALLED_APPS = (
     'accounts',
     'api',
     'main',
+    'stats',
     #django-allauth
     'allauth',
     'allauth.account',
@@ -176,6 +177,7 @@ INSTALLED_APPS = (
     #'allauth.socialaccount.providers.twitch',
     #'allauth.socialaccount.providers.twitter',
     #other 3rd party
+    'huey.djhuey',
     'south',
     'bootstrapform',
     #'registration',
@@ -221,6 +223,11 @@ LOGGING = {
         'django.request': {
             'handlers': ['mail_admins', ],
             'level': 'ERROR',
+            'propagate': True,
+        },
+        'huey.consumer': {
+            'handlers': ['stderr', ],
+            'level': 'DEBUG',
             'propagate': True,
         },
     },
