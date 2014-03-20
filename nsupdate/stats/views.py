@@ -7,4 +7,5 @@ class StatsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(StatsView, self).get_context_data(**kwargs)
         context['user_counts'] = StatisticsEntry.objects.filter(stat_type='user_count').order_by('created')
+        context['nav_stats'] = True
         return context

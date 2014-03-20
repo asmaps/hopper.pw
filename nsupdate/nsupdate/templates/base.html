@@ -50,6 +50,9 @@
                         <li{% if nav_about %} class="active"{% endif %}>
                             <a href="{% url 'about' %}"><i class="fa fa-tags"></i> About</a>
                         </li>
+                        <li{% if nav_stats %} class="active"{% endif %}>
+                            <a href="{% url 'stats' %}"><i class="fa fa-bar-chart-o"></i> Stats</a>
+                        </li>
                         <li{% if nav_help %} class="active"{% endif %}>
                             <a href="{% url 'help' %}"><i class="fa fa-question-circle"></i> Help</a>
                         </li>
