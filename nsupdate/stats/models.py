@@ -10,3 +10,6 @@ STAT_TYPES = (
 class StatisticsEntry(BaseModel):
     stat_type = models.CharField(max_length=32, choices=STAT_TYPES)
     value = models.IntegerField()
+
+    def __unicode__(self):
+        return "%s: %d (%s)" % (self.stat_type, self.value, self.created)
