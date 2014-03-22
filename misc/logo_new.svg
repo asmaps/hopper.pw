@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4"
-     inkscape:cx="106.33243"
-     inkscape:cy="41.002705"
+     inkscape:zoom="4.1530365"
+     inkscape:cx="104.74264"
+     inkscape:cy="45.500011"
      inkscape:document-units="px"
      inkscape:current-layer="g2996"
      showgrid="false"
@@ -62,7 +62,7 @@
          id="g2996">
         <path
            id="path2989"
-           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           style="fill:none;stroke:#ff0000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
            d="m 87.5,1037.8622 0,7 30,0 30,-28 48.48528,0 M 87.5,981.86218 l 0,-7 30,0 30,28.00002 27.5,0 m -148.737437,0 21.237437,0 15,-21.00002 25,0 5,3 0,50.00002 -5,3 -25,0 -15,-21 -40.0000004,0"
            inkscape:connector-curvature="0"
            sodipodi:nodetypes="cccccccccccccccccccc" />
