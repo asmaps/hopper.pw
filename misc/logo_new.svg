@@ -9,24 +9,24 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="300"
-   height="200"
+   width="209.48528"
+   height="91.000023"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="logo_new.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
      id="base"
-     pagecolor="#ffffff"
+     pagecolor="#000000"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="165.41872"
-     inkscape:cy="135.80213"
+     inkscape:zoom="4"
+     inkscape:cx="106.33243"
+     inkscape:cy="41.002705"
      inkscape:document-units="px"
      inkscape:current-layer="g2996"
      showgrid="false"
@@ -34,7 +34,11 @@
      inkscape:window-height="747"
      inkscape:window-x="0"
      inkscape:window-y="19"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="0"
+     fit-margin-top="10"
+     fit-margin-left="10"
+     fit-margin-right="10"
+     fit-margin-bottom="10" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -43,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -51,15 +55,15 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-852.36218)">
+     transform="translate(3.0000004,-964.36218)">
     <g
        id="g2991">
       <g
          id="g2996">
         <path
            id="path2989"
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 150,945.36218 0,7 30,0 30,-28 48.48528,0 m -108.48528,-35 0,-7 30,0 30,28 27.42462,0 m -148.662057,0 21.237437,0 15,-21 25,0 5,3 0,50 -5,3 -25,0 -15,-21 -40,0"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 87.5,1037.8622 0,7 30,0 30,-28 48.48528,0 M 87.5,981.86218 l 0,-7 30,0 30,28.00002 27.5,0 m -148.737437,0 21.237437,0 15,-21.00002 25,0 5,3 0,50.00002 -5,3 -25,0 -15,-21 -40.0000004,0"
            inkscape:connector-curvature="0"
            sodipodi:nodetypes="cccccccccccccccccccc" />
       </g>
