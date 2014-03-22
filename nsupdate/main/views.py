@@ -204,7 +204,7 @@ class DeleteDomainView(DeleteView):
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(DeleteHostView, self).dispatch(*args, **kwargs)
+        return super(DeleteDomainView, self).dispatch(*args, **kwargs)
 
     def get_object(self, *args, **kwargs):
         obj = super(DeleteDomainView, self).get_object(*args, **kwargs)
