@@ -1,0 +1,24 @@
+$.plot($("#{{ element }}"), 
+[ 
+[
+{% for entry in datalist %}
+[{{ entry.created|date:"U000" }}, {{ entry.value }}]{% if not forloop.last %},{% endif %}
+{% endfor %}
+] 
+],
+{ 
+xaxis: {
+mode: "time",
+timeformat: "%Y/%m/%d",
+ticks: 2
+},
+yaxis: {
+min: 0
+},
+series: {
+lines: { show: true },
+points: {show: true}
+},
+hoverable: true
+}
+);

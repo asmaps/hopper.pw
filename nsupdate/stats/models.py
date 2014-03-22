@@ -5,6 +5,8 @@ import jsonfield
 
 STAT_TYPES = (
     ('user_count', 'User count'),
+    ('host_count', 'Host count'),
+    ('ip_update_count', 'IP update count'),
 )
 
 class StatisticsEntry(BaseModel):

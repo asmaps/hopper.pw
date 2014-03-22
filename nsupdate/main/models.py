@@ -10,7 +10,8 @@ import dns.resolver
 from datetime import datetime
 
 import re
-
+import base64
+import binascii
 
 class BaseModel(models.Model):
     last_update = models.DateTimeField(auto_now=True)
@@ -50,6 +51,13 @@ def domain_blacklist_validator(value):
             raise ValidationError(u'This domain is not allowed')
 
 
+def ns_update_key_validator(value):
+    try:
+        base64.decodestring(value)
+    except binascii.Error, e:
+        raise ValidationError(u'Invalid update key: Must be base64 (%s)' % e)
+
+
 UPDATE_ALGORITHMS = (
     ('HMAC_SHA512', 'HMAC_SHA512'),
 )
@@ -59,7 +67,8 @@ class Domain(BaseModelCreatedBy):
     domain = models.CharField(max_length=256, unique=True)
     nameserver_ip = models.IPAddressField(
         max_length=256)
-    nameserver_update_key = models.CharField(max_length=256)
+    nameserver_update_key = models.CharField(max_length=256, validators=[
+        ns_update_key_validator])
     nameserver_update_algorithm = models.CharField(
         max_length=256, choices=UPDATE_ALGORITHMS)
     available_for_everyone = models.BooleanField(default=False)

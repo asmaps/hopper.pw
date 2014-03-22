@@ -4,20 +4,18 @@
 
 {% block header %}
 
-  <div class="jumbotron">
-      <div class="container">
-        {% if request.session.ipv4 %}
-            <h1>{{request.session.ipv4}}</h1>
-        {% endif %}
-        {% if request.session.ipv6 %}
-            <h2>{{request.session.ipv6}}</h2>
-        {% endif %}
-        <p>hopper.pw, the <strong>free and open source</strong> Dynamic DNS service for you.</p>
-        <p>
-            {% include "social_widgets.html" %}
-        </p>
-      </div>
-    </div>
+<div class="jumbotron">
+    {% if request.session.ipv4 %}
+    <h1>{{request.session.ipv4}}</h1>
+    {% endif %}
+    {% if request.session.ipv6 %}
+    <h2>{{request.session.ipv6}}</h2>
+    {% endif %}
+    <p>hopper.pw, the <strong>free and open source</strong> Dynamic DNS service for you.</p>
+    <p>
+    {% include "social_widgets.html" %}
+    </p>
+</div>
 
 
 {% endblock %}
@@ -29,41 +27,41 @@
         <h1><i class="fa fa-globe fa-3x"></i></h1>
         <h3>World Wide Web</h3>
         <p>
-            Reach your home whenever you want!
+        Reach your home whenever you want!
         </p>
     </div>
     <div class="col-sm-4" style="text-align: center">
         <h1><i class="fa fa-github fa-3x"></i></h1>
         <h3>Open Source and free</h3>
         <p>
-            hopper.pw is a free to use, open source dynamic DNS service with IPv4 and IPv6 support.
+        hopper.pw is a free to use, open source dynamic DNS service with IPv4 and IPv6 support.
         </p>
     </div>
     <div class="col-sm-4" style="text-align: center">
         <h1><i class="fa fa-rocket fa-3x"></i></h1>
         <h3>Rocket science</h3>
         <p>
-            hopper.pw relies on an awesome software stack:<br>
-            <a href="http://www.python.org">python</a>,
-            <a href="http://www.djangoproject.com">django</a>,
-            <a href="http://www.postgres.org">postgres</a>,
-            <a href="http://www.nginx.org">nginx</a> and
-            <a href="http://www.powerdns.com">powerdns</a>
+        hopper.pw relies on an awesome software stack:<br>
+        <a href="http://www.python.org">python</a>,
+        <a href="http://www.djangoproject.com">django</a>,
+        <a href="http://www.postgres.org">postgres</a>,
+        <a href="http://www.nginx.org">nginx</a> and
+        <a href="http://www.powerdns.com">powerdns</a>
         </p>
     </div>
 </div>
 <hr>
 <div class="row">
-<!--    <div class="col-sm-6">
+    <!--    <div class="col-sm-6">
         <div class="row">
             <div class="col-lg-6">
                 <div class="well well-sm">
                     <h3>We had a lot of fun</h3>
                     <p>
-                        <i class="icon icon-ok"></i> Free and Open-Source<br>
-                        <i class="icon icon-ok"></i> Easy to use<br>
-                        <i class="icon icon-ok"></i> Fast and Awesome<br>
-                        <i class="icon icon-ok"></i> Probably no Bugs :)<br>
+                    <i class="icon icon-ok"></i> Free and Open-Source<br>
+                    <i class="icon icon-ok"></i> Easy to use<br>
+                    <i class="icon icon-ok"></i> Fast and Awesome<br>
+                    <i class="icon icon-ok"></i> Probably no Bugs :)<br>
                     </p>
                 </div>
             </div>
@@ -71,41 +69,41 @@
                 <div class="well well-sm">
                     <h3>DjangoDash 2013</h3>
                     <p>
-                         This software / service was developed in under 48h for the
-                        <a href="http://djangodash.com/">Django-Dash 2013</a>.
+                    This software / service was developed in under 48h for the
+                    <a href="http://djangodash.com/">Django-Dash 2013</a>.
                     </p>
                 </div>
             </div>
         </div>
-     </div>-->
-     <div class="col-sm-6 col-sm-offset-3">
-         <div class="well well-sm">
-             <h3>Screenshots</h3>
-             <a id="screenshots_url" href="{% static 'screenshots/overview.png' %}">
-                 <img id="screenshots" src="{% static 'screenshots/overview.png' %}" class="img-responsive" alt="Responsive image">
-             </a>
-             <script>
-             var id = 0;
-             var srcs = Array("{% static 'screenshots/hostview.png' %}","{% static 'screenshots/help.png' %}","{% static 'screenshots/overview.png' %}","{% static 'screenshots/generatesecret.png' %}");
-             setInterval(function(){
-                 $('#screenshots').attr('src', srcs[id]);
-                 $('#screenshots_url').attr('href', srcs[id]);
-                 id += 1;
-                 if(id>=srcs.length) {
-                     id=0;
-                 }
-             },5000);
-                 
-             </script>
+    </div>-->
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="well well-sm">
+            <h3>Screenshots</h3>
+            <a id="screenshots_url" href="{% static 'screenshots/overview.png' %}">
+                <img id="screenshots" src="{% static 'screenshots/overview.png' %}" class="img-responsive" alt="Responsive image">
+            </a>
+            <script>
+                var id = 0;
+                var srcs = Array("{% static 'screenshots/hostview.png' %}","{% static 'screenshots/help.png' %}","{% static 'screenshots/overview.png' %}","{% static 'screenshots/generatesecret.png' %}");
+                setInterval(function(){
+                    $('#screenshots').attr('src', srcs[id]);
+                    $('#screenshots_url').attr('href', srcs[id]);
+                    id += 1;
+                    if(id>=srcs.length) {
+                        id=0;
+                    }
+                },5000);
+
+            </script>
         </div>
     </div>
 </div>
 {% if ENABLE_ADS %}
-    <div class="row ad-728-90">
-        <div class="text-center col-lg-12">
-            {% include "ads/ad_leaderboard.html" %}
-        </div>
+<div class="row ad-728-90">
+    <div class="text-center col-lg-12">
+        {% include "ads/ad_leaderboard.html" %}
     </div>
+</div>
 {% endif %}
 
 <hr>

@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.sessions.backends.db import SessionStore
 
 from main.models import Host
+from stats.tasks import increment_ip_update_count
 import dns.inet
 import os
 
@@ -206,6 +207,7 @@ def _update(hostname, ipaddr):
         logging.error("fqdn %s has multiple entries" % hostname)
         return False
     hosts[0].poke()
+    increment_ip_update_count()
     try:
         update(hostname, ipaddr, origin=hosts[0].domain.domain)
         logger.info('%s - received good update -> ip: %s' % (hostname, ipaddr, ))

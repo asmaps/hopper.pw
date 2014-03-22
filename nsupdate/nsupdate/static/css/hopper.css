@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px;
+    padding-top: 10px;
 }
 
 html, body {
@@ -21,7 +21,7 @@ html, body {
   height: 50px;
   padding: 15px;
   margin-top: 70px;
-  background-color: #ddd;
+  background-color: #303030;
 }
 
 .indent {

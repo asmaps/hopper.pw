@@ -2,8 +2,8 @@
 {% load static from staticfiles %}
 
 {% block extra_head %}
-    <link href="{% static 'stats/stats.css' %}" rel="stylesheet">
-    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{% static 'stats/flot/excanvas.min.js' %}"></script><![endif]-->
+<link href="{% static 'stats/stats.css' %}" rel="stylesheet">
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{% static 'stats/flot/excanvas.min.js' %}"></script><![endif]-->
 {% endblock extra_head %}
 
 {% block content %}
@@ -13,10 +13,22 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-4">
-        <h2>Registered users</h2>
-        <div id="user_count_graph" class="flotgraph">
-        </div>
+    <div class="col-lg-6">
+            <h2>Total number of users</h2>
+            <div id="user_count_graph" class="flotgraph well">
+            </div>
+    </div>
+    <div class="col-lg-6">
+            <h2>Total number of hosts</h2>
+            <div id="host_count_graph" class="flotgraph well">
+            </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+            <h2>Number of IP updates by day</h2>
+            <div id="ip_update_count_graph" class="flotgraph well">
+            </div>
     </div>
 </div>
 {% endblock content %}
@@ -26,22 +38,9 @@
 <script language="javascript" type="text/javascript" src="{% static 'stats/flot/jquery.flot.time.js' %}"></script>
 <script>
     $(document).ready(function() {
-        $.plot($('#user_count_graph'), 
-        [ 
-        [
-        {% for entry in user_counts %}
-        [{{ entry.created|date:"U000" }}, {{ entry.value }}]{% if not forloop.last %},{% endif %}
-        {% endfor %}
-        ] 
-        ],
-        { 
-            xaxis: {
-                mode: "time",
-                timeformat: "%Y/%m/%d",
-                ticks: 2
-            },
-            yaxis: { min: 0 }
-        });
+        {% include 'stats/includes/init_flotchart.html' with element='user_count_graph' datalist=user_counts %}
+        {% include 'stats/includes/init_flotchart.html' with element='host_count_graph' datalist=host_counts %}
+        {% include 'stats/includes/init_flotchart.html' with element='ip_update_count_graph' datalist=ip_update_counts %}
     });
 </script>
 {% endblock bottom_js %}
