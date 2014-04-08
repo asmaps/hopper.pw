@@ -2,6 +2,10 @@
 {% load bootstrap %}
 {% load static %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'magnific-popup/magnific-popup.css' %}">
+{% endblock %}
+
 {% block header %}
 
 <div class="jumbotron">
@@ -52,49 +56,50 @@
 </div>
 <hr>
 <div class="row">
-    <!--    <div class="col-sm-6">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="well well-sm">
-                    <h3>We had a lot of fun</h3>
-                    <p>
-                    <i class="icon icon-ok"></i> Free and Open-Source<br>
-                    <i class="icon icon-ok"></i> Easy to use<br>
-                    <i class="icon icon-ok"></i> Fast and Awesome<br>
-                    <i class="icon icon-ok"></i> Probably no Bugs :)<br>
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="well well-sm">
-                    <h3>DjangoDash 2013</h3>
-                    <p>
-                    This software / service was developed in under 48h for the
-                    <a href="http://djangodash.com/">Django-Dash 2013</a>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>-->
     <div class="col-sm-6 col-sm-offset-3">
         <div class="well well-sm">
             <h3>Screenshots</h3>
-            <a id="screenshots_url" href="{% static 'screenshots/overview.png' %}">
-                <img id="screenshots" src="{% static 'screenshots/overview.png' %}" class="img-responsive" alt="Responsive image">
-            </a>
-            <script>
-                var id = 0;
-                var srcs = Array("{% static 'screenshots/hostview.png' %}","{% static 'screenshots/help.png' %}","{% static 'screenshots/overview.png' %}","{% static 'screenshots/generatesecret.png' %}");
-                setInterval(function(){
-                    $('#screenshots').attr('src', srcs[id]);
-                    $('#screenshots_url').attr('href', srcs[id]);
-                    id += 1;
-                    if(id>=srcs.length) {
-                        id=0;
-                    }
-                },5000);
+            <div id="screenshot-carousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#screenshot-carousel" data-slide-to="1"></li>
+                    <li data-target="#screenshot-carousel" data-slide-to="2"></li>
+                    <li data-target="#screenshot-carousel" data-slide-to="3"></li>
+                </ol>
 
-            </script>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <a href="{% static 'screenshots/overview.png' %}" class="mfp-image">
+                            <img src="{% static 'screenshots/overview.png' %}">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="{% static 'screenshots/stats.png' %}" class="mfp-image">
+                            <img src="{% static 'screenshots/stats.png' %}">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="{% static 'screenshots/generatesecret.png' %}" class="mfp-image">
+                            <img src="{% static 'screenshots/generatesecret.png' %}">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="{% static 'screenshots/hostview.png' %}" class="mfp-image">
+                            <img src="{% static 'screenshots/hostview.png' %}">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#screenshot-carousel" data-slide="prev">
+                    <span class="fa fa-angle-left icon-prev"></span>
+                </a>
+                <a class="right carousel-control" href="#screenshot-carousel" data-slide="next">
+                    <span class="fa fa-angle-right icon-next"></span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -108,3 +113,18 @@
 
 <hr>
 {% endblock %}
+
+{% block bottom_js %}
+<script src="{% static 'magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        
+            $('.mfp-image').magnificPopup({
+                type:'image',
+                removalDelay: 300,
+                mainClass: 'mfp-fade'
+            });
+        
+    });
+</script>
+{% endblock bottom_js %}

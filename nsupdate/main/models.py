@@ -54,7 +54,7 @@ def domain_blacklist_validator(value):
 def ns_update_key_validator(value):
     try:
         base64.decodestring(value)
-    except binascii.Error, e:
+    except binascii.Error as e:
         raise ValidationError(u'Invalid update key: Must be base64 (%s)' % e)
 
 
