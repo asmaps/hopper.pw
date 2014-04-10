@@ -24,6 +24,14 @@ html, body {
   background-color: #303030;
 }
 
+.mtop10 {
+    margin-top: 10px;
+}
+
+.mbot10 {
+    margin-bottom: 10px;
+}
+
 .indent {
     margin: 20px 0px 20px 20px;
 }

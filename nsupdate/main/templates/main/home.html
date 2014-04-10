@@ -16,9 +16,14 @@
     <h2>{{request.session.ipv6}}</h2>
     {% endif %}
     <p>hopper.pw, the <strong>free and open source</strong> Dynamic DNS service for you.</p>
-    <p>
+    <div class="mtop10 mbot10">
     {% include "social_widgets.html" %}
-    </p>
+        {% if not request.user.is_authenticated %}
+        <div class="pull-right">
+             <a href="{% url 'account_signup' %}" class="btn btn-success btn-lg"><i class="fa fa-star-o"></i> Sign up for free</a>
+        </div>
+        {% endif %}
+    </div>
 </div>
 
 
@@ -57,8 +62,7 @@
 <hr>
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-        <div class="well well-sm">
-            <h3>Screenshots</h3>
+
             <div id="screenshot-carousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
