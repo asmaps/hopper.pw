@@ -13,7 +13,7 @@ from stats.models import StatisticsEntry
 @db_periodic_task(crontab(hour='0', minute='0'))
 def save_user_count():
     try:
-        last_count = StatisticsEntry.objects.filter(stat_type='user_count').order_by('-created')[0]
+        last_count = StatisticsEntry.objects.filter(stat_type='user_count').order_by('-created')[0].value
     except Exception as e:
         last_count = 0
         logging.warn('Dropped exception {0} in task save_user_count'.format(e))
@@ -25,7 +25,7 @@ def save_user_count():
 @db_periodic_task(crontab(hour='0', minute='0'))
 def save_host_count():
     try:
-        last_count = StatisticsEntry.objects.filter(stat_type='host_count').order_by('-created')[0]
+        last_count = StatisticsEntry.objects.filter(stat_type='host_count').order_by('-created')[0].value
     except Exception as e:
         last_count = 0
         logging.warn('Dropped exception {0} in task save_user_count'.format(e))
