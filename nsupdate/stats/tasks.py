@@ -1,5 +1,6 @@
 from datetime import datetime
 import pytz
+import logging
 
 from huey.djhuey import crontab, db_periodic_task, db_task
 from django.conf import settings
@@ -11,14 +12,26 @@ from stats.models import StatisticsEntry
 
 @db_periodic_task(crontab(hour='0', minute='0'))
 def save_user_count():
+    try:
+        last_count = StatisticsEntry.objects.filter(stat_type='user_count').order_by('-created')[0]
+    except Exception as e:
+        last_count = 0
+        logging.warn('Dropped exception {0} in task save_user_count'.format(e))
     count = get_user_model().objects.all().count()
-    StatisticsEntry.objects.create(stat_type='user_count', value=count)
+    if not count == last_count:
+        StatisticsEntry.objects.create(stat_type='user_count', value=count)
 
 
 @db_periodic_task(crontab(hour='0', minute='0'))
 def save_host_count():
+    try:
+        last_count = StatisticsEntry.objects.filter(stat_type='host_count').order_by('-created')[0]
+    except Exception as e:
+        last_count = 0
+        logging.warn('Dropped exception {0} in task save_user_count'.format(e))
     count = Host.objects.all().count()
-    StatisticsEntry.objects.create(stat_type='host_count', value=count)
+    if not count == last_count:
+        StatisticsEntry.objects.create(stat_type='host_count', value=count)
 
 @db_task()
 def increment_ip_update_count():
