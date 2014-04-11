@@ -1,4 +1,5 @@
-import datetime
+from datetime import datetime
+import pytz
 
 from huey.djhuey import crontab, db_periodic_task, db_task
 from django.conf import settings
@@ -21,7 +22,7 @@ def save_host_count():
 
 @db_task()
 def increment_ip_update_count():
-    today = datetime.date.today()
+    today = datetime.now(pytz.utc)
     (se, created) = StatisticsEntry.objects.get_or_create(
             stat_type='ip_update_count',
             created__year=(today.year),
