@@ -6,129 +6,140 @@
 <link rel="stylesheet" href="{% static 'magnific-popup/magnific-popup.css' %}">
 {% endblock %}
 
-{% block header %}
-
-<div class="jumbotron">
-    {% if request.session.ipv4 %}
-    <h1>{{request.session.ipv4}}</h1>
-    {% endif %}
-    {% if request.session.ipv6 %}
-    <h2>{{request.session.ipv6}}</h2>
-    {% endif %}
-    <p>hopper.pw, the <strong>free and open source</strong> Dynamic DNS service for you.</p>
-    <div class="mtop10 mbot10">
-    {% include "social_widgets.html" %}
-        {% if not request.user.is_authenticated %}
-        <div class="pull-right">
-             <a href="{% url 'account_signup' %}" class="btn btn-success btn-lg"><i class="fa fa-star-o"></i> Sign up for free</a>
-        </div>
-        {% endif %}
-    </div>
-</div>
-
-
-{% endblock %}
-
 {% block content %}
-
 <div class="row">
-    <div class="col-sm-4" style="text-align: center">
-        <h1><i class="fa fa-globe fa-3x"></i></h1>
-        <h3>World Wide Web</h3>
-        <p>
-        Reach your home whenever you want!
-        </p>
+    <div class="col-md-10 col-xs-12">
+        <div class="jumbotron">
+            {% if request.session.ipv4 %}
+            <h1 style="margin-bottom:0px">{{request.session.ipv4}} <small>IPv4</small></h1>
+            {% endif %}
+            {% if request.session.ipv6 %}
+            <h2 style="margin-top:0px;margin-bottom:30px">{{request.session.ipv6}} <small>IPv6</small></h2>
+            {% endif %}
+            <h3 class="indent">Free and open source dynamic DNS<br>
+                <small>No annoying mails, simple interface - easy to use!</small></h3>
+            <div class="mtop10 mbot10">
+                {% include "social_widgets.html" %}
+                {% if not request.user.is_authenticated %}
+                <div class="pull-right">
+                    <a href="{% url 'account_signup' %}" class="btn btn-success btn-lg"><i class="fa fa-star-o"></i> Sign up for free</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4" style="text-align: center">
+                <h1><i class="fa fa-globe fa-3x"></i></h1>
+                <h3>World Wide Web</h3>
+                <p>
+                Reach your home whenever you want!
+                </p>
+            </div>
+            <div class="col-sm-4" style="text-align: center">
+                <h1><i class="fa fa-github fa-3x"></i></h1>
+                <h3>Open Source and free</h3>
+                <p>
+                hopper.pw is a free to use, open source dynamic DNS service with IPv4 and IPv6 support.
+                </p>
+            </div>
+            <div class="col-sm-4" style="text-align: center">
+                <h1><i class="fa fa-rocket fa-3x"></i></h1>
+                <h3>Rocket science</h3>
+                <p>
+                hopper.pw relies on an awesome software stack:<br>
+                <a target="_blank" href="http://www.python.org">python</a>,
+                <a target="_blank" href="http://www.djangoproject.com">django</a>,
+                <a target="_blank" href="http://www.postgres.org">postgres</a>,
+                <a target="_blank" href="http://www.nginx.org">nginx</a> and
+                <a target="_blank" href="http://www.powerdns.com">powerdns</a>
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-4" style="text-align: center">
-        <h1><i class="fa fa-github fa-3x"></i></h1>
-        <h3>Open Source and free</h3>
-        <p>
-        hopper.pw is a free to use, open source dynamic DNS service with IPv4 and IPv6 support.
-        </p>
+    {% if ENABLE_ADS %}
+    <div class="col-lg-2 ad-160-600 text-center visible-lg">
+        {% include "ads/ad_wide_skyscraper.html" %}
     </div>
-    <div class="col-sm-4" style="text-align: center">
-        <h1><i class="fa fa-rocket fa-3x"></i></h1>
-        <h3>Rocket science</h3>
-        <p>
-        hopper.pw relies on an awesome software stack:<br>
-        <a href="http://www.python.org">python</a>,
-        <a href="http://www.djangoproject.com">django</a>,
-        <a href="http://www.postgres.org">postgres</a>,
-        <a href="http://www.nginx.org">nginx</a> and
-        <a href="http://www.powerdns.com">powerdns</a>
-        </p>
+    <div class="col-md-2 ad-120-600 text-center visible-md">
+        {% include "ads/ad_skyscraper.html" %}
     </div>
+    {% endif %}
 </div>
 <hr>
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
+        <h3>Screenshots</h3>
+        <div id="screenshot-carousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#screenshot-carousel" data-slide-to="1"></li>
+                <li data-target="#screenshot-carousel" data-slide-to="2"></li>
+                <li data-target="#screenshot-carousel" data-slide-to="3"></li>
+            </ol>
 
-            <div id="screenshot-carousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#screenshot-carousel" data-slide-to="1"></li>
-                    <li data-target="#screenshot-carousel" data-slide-to="2"></li>
-                    <li data-target="#screenshot-carousel" data-slide-to="3"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <a href="{% static 'screenshots/overview.png' %}" class="mfp-image">
-                            <img src="{% static 'screenshots/overview.png' %}">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{% static 'screenshots/stats.png' %}" class="mfp-image">
-                            <img src="{% static 'screenshots/stats.png' %}">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{% static 'screenshots/generatesecret.png' %}" class="mfp-image">
-                            <img src="{% static 'screenshots/generatesecret.png' %}">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{% static 'screenshots/hostview.png' %}" class="mfp-image">
-                            <img src="{% static 'screenshots/hostview.png' %}">
-                        </a>
-                    </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="{% static 'screenshots/overview.png' %}" class="mfp-image">
+                        <img src="{% static 'screenshots/overview.png' %}">
+                    </a>
                 </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#screenshot-carousel" data-slide="prev">
-                    <span class="fa fa-angle-left icon-prev"></span>
-                </a>
-                <a class="right carousel-control" href="#screenshot-carousel" data-slide="next">
-                    <span class="fa fa-angle-right icon-next"></span>
-                </a>
+                <div class="item">
+                    <a href="{% static 'screenshots/stats.png' %}" class="mfp-image">
+                        <img src="{% static 'screenshots/stats.png' %}">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="{% static 'screenshots/generatesecret.png' %}" class="mfp-image">
+                        <img src="{% static 'screenshots/generatesecret.png' %}">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="{% static 'screenshots/hostview.png' %}" class="mfp-image">
+                        <img src="{% static 'screenshots/hostview.png' %}">
+                    </a>
+                </div>
             </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#screenshot-carousel" data-slide="prev">
+                <span class="fa fa-angle-left icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#screenshot-carousel" data-slide="next">
+                <span class="fa fa-angle-right icon-next"></span>
+            </a>
         </div>
     </div>
 </div>
+<hr>
 {% if ENABLE_ADS %}
-<div class="row ad-728-90">
+<div class="row ad-728-90 hidden-xs">
     <div class="text-center col-lg-12">
         {% include "ads/ad_leaderboard.html" %}
     </div>
 </div>
+<div class="row ad-336-280 visible-xs">
+    <div class="text-center col-lg-12">
+        {% include "ads/ad_large_rectangle.html" %}
+    </div>
+</div>
 {% endif %}
 
-<hr>
 {% endblock %}
 
 {% block bottom_js %}
 <script src="{% static 'magnific-popup/jquery.magnific-popup.min.js' %}"></script>
 <script>
-    $(document).ready(function() {
-        
-            $('.mfp-image').magnificPopup({
-                type:'image',
-                removalDelay: 300,
-                mainClass: 'mfp-fade'
-            });
-        
-    });
+$(document).ready(function() {
+
+        $('.mfp-image').magnificPopup({
+type:'image',
+removalDelay: 300,
+mainClass: 'mfp-fade'
+});
+
+        });
 </script>
 {% endblock bottom_js %}
