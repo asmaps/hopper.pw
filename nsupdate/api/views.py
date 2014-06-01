@@ -3,7 +3,7 @@
 import logging
 logger = logging.getLogger(__name__)
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.decorators import login_required
@@ -202,10 +202,10 @@ def _update(hostname, ipaddr):
     hosts = Host.filter_by_fqdn(hostname)
     num_hosts = len(hosts)
     if num_hosts == 0:
-        return False
+        return HttpResponseBadRequest('Invalid hostname')
     if num_hosts > 1:
         logging.error("fqdn %s has multiple entries" % hostname)
-        return False
+        return HttpResponseBadRequest('Invalid hostname')
     hosts[0].poke()
     increment_ip_update_count()
     try:
