@@ -2,66 +2,103 @@
 {% load bootstrap %}
 
 {% block content %}
-<h1>About hopper.pw</h1>
-    <h3>What's this?</h3>
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="text-center">About hopper.pw</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-5">
+        <h3>What's this?</h3>
         <p>
-            hopper.pw is a free dynamic DNS service, as well as an
-            <a href="https://github.com/asmaps/hopper.pw"><i class="fa fa-github-square"></i>open source software project</a>.
+        hopper.pw is a free dynamic DNS service, as well as an
+        <a href="https://github.com/asmaps/hopper.pw"><i class="fa fa-github-square"></i>open source software project</a>.
         </p>
-    <h3>What the heck is (dynamic) DNS!?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-7 col-sm-offset-3">
+        <h3>What the heck is (dynamic) DNS!?</h3>
         <p>
-            DNS stands for Domain Name System. This is the "addressbook" of the internet:
-            Every device in the internet has an IP address - but because people are bad at
-            remembering numbers DNS translates easy to remember names to IP addresses.<br>
-            Your router at home also is a device in the internet, so it has an IP address -
-            but oh... it does NOT automatically have a DNS entry. Also your IP address
-            changes regularly. To update a DNS entry most routers have the option to report
-            their IP address to a dynamic DNS service (like hopper.pw) if it changed.
-            So you can reach your home router from the internet at anytime (e.g. for remote
-            administration or switching off the lights)
+        DNS stands for Domain Name System. This is the "addressbook" of the internet:
+        Every device in the internet has an IP address - but because people are bad at
+        remembering numbers DNS translates easy to remember names to IP addresses.<br>
+        Your router at home also is a device in the internet, so it has an IP address -
+        but oh... it does NOT automatically have a DNS entry. Also your IP address
+        changes regularly. To update a DNS entry most routers have the option to report
+        their IP address to a dynamic DNS service (like hopper.pw) if it changed.
+        So you can reach your home router from the internet at anytime (e.g. for remote
+        administration or switching off the lights)
         </p>
-    <h3>Where do I get a domain (DNS entry) from?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+        <h3>Where do I get a domain (DNS entry) from?</h3>
         <p>
-            As part of the free service hopper.pw offers a subdomain (&lt;something&gt;.hopper.pw) for you.
-            If you are more advanced, have your own domain and a nsupdate-capable
-            DNS server you can add your own domain.
+        As part of the free service hopper.pw offers a subdomain (&lt;something&gt;.hopper.pw) for you.
+        If you are more advanced, have your own domain and a nsupdate-capable
+        DNS server you can add your own domain.
         </p>
-    <h3>What does it cost?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-7 col-md-3 col-md-offset-9">
+        <h3>What does it cost?</h3>
         <p>
-            Nothing! The service is completely free of charge. No hidden costs!
+        Nothing! The service is completely free of charge. No hidden costs!
         </p>
-    <h3>How is hopper.pw funded?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-2">
+        <h3>How is hopper.pw funded?</h3>
         <p>
-            hopper.pw is completely funded from private pocket. If you want to support
-            hopper.pw, keep the service running and help me pay for the server
-            please consider donating or pressing the flattr button.
-            If you don't want to support with money just <strong>spread the word</strong>
-            or make your own contributions to the project.
+        hopper.pw is completely funded from private pocket. If you want to support
+        hopper.pw, keep the service running and help me pay for the server
+        please consider donating or pressing the flattr button.
+        If you don't want to support with money just <strong>spread the word</strong>
+        or make your own contributions to the project.
         </p>
-    <h3>Why another dyndns service?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-7 col-sm-offset-5">
+        <h3>Why another dyndns service?</h3>
         <p>
-            Yes - there are already various other dyndns services. Buuuuut...
-            We were annoyed by always having to click on a link in an email every couple of days
-            to prevent the deletion of the domain on other widely spread services and also to always
-            try finding the well hidden button for the free accounts. That's why we thought
-            "let's host our own service - can't be to difficult!". So during djangodash 2013
-            nsupdate.info was born. After the dash the project split into two forks: nsupdate.info
-            and hopper.pw.
+        Yes - there are already various other dyndns services. Buuuuut...
+        We were annoyed by always having to click on a link in an email every couple of days
+        to prevent the deletion of the domain on other widely spread services and also to always
+        try finding the well hidden button for the free accounts. That's why we thought
+        "let's host our own service - can't be to difficult!". So during djangodash 2013
+        nsupdate.info was born. After the dash the project split into two forks: nsupdate.info
+        and hopper.pw.
         </p>
-    <h3>Who are we?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-4">
+        <h3>Who is maintaining hopper.pw?</h3>
         <p>
-            We, that's <a href="https://github.com/asmaps/">Arne Schauf</a>, <a href="https://github.com/Samuirai/">Fabian Faessler</a> and <a href="https://github.com/ThomasWaldmann/">Thomas Waldmann</a>. This is the team from djangodash 2013.
-            hopper.pw is funded and maintained by Arne Schauf.
+        Hopper.pw is maintained and funded by <a href="https://github.com/asmaps/">Arne Schauf</a>. The first version was developed on djangodash 2013.
         </p>
-
-    <h3>Is it reliable?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-7">
+        <h3>Is it reliable?</h3>
         <p>
-            I try to do my best to keep the service up and running.<br>
-            But: This is a free service, there are no warranties. If it breaks, it breaks.
+        I try to do my best to keep the service up and running.<br>
+        But: This is a free service, there are no warranties. If it breaks, it breaks.
         </p>
-
-    <h3>Any questions left?</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <h3>Any questions left?</h3>
         <p>
-            Please do not hesitate to contact me: contact_about@hopper.pw
+        Please do not hesitate to contact me: contact_about@hopper.pw
         </p>
+    </div>
+</div>
 {% endblock %}
