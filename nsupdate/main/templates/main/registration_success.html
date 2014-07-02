@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <h1>Welcome on hopper.pw! <small>You just completed your registration.</small></h1>
+    </div>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 well well-sm">
+        <h2>What you can do next:</h2>
+        <div style="margin:2rem" class="clearfix">
+            <h4>Like hopper.pw on facebook and follow on twitter:</h4>
+            <div style="margin:1rem" class="pull-left fb-like" data-href="https://www.facebook.com/hopper.pw" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+            <div style="margin:1rem" class="pull-left">
+                <a href="https://twitter.com/hopper_dyndns" class="twitter-follow-button" data-show-count="false">Follow @hopper_dyndns</a>
+            </div>
+        </div>
+        <div style="margin:2rem" class="clearfix">
+            <h4>Tell your friends:</h4>
+            <div style="margin:1rem" class="pull-left fb-share-button" data-href="https://www.hopper.pw/" data-type="button_count"></div>
+            <div style="margin:1rem" class="pull-left">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.hopper.pw/" data-text="I'm now using free and open source dynamic DNS. Made by @hopper_dyndns" data-via="hopper_dyndns">Tweet</a>
+            </div>
+        </div>
+        <div style="margin:2rem">
+            <h4>Start using hopper.pw:</h4>
+            <div style="margin:2rem">
+                <a class="btn btn-primary" href="{% url 'overview' %}"><i class="fa fa-plus"></i> Create your first host</a>
+            </div>
+        </div>
+    </div>
+</div>
+{# Facebook #}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=482942351823456&version=v2.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+{# Twitter #}
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+{% endblock %}

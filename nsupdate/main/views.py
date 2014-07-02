@@ -83,6 +83,10 @@ class HelpView(TemplateView):
         return context
 
 
+class RegistrationSuccessView(TemplateView):
+    template_name = 'main/registration_success.html'
+
+
 class OverviewView(CreateView):
     model = Host
     template_name = "main/overview.html"

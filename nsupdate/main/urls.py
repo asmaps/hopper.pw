@@ -1,17 +1,21 @@
+from api.views import (
+    MyIpView, DetectIpView, NicUpdateView, AuthorizedNicUpdateView)
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
 from main.views import (
     HomeView, OverviewView, HostView, DeleteHostView, AboutView, HelpView,
-    GenerateSecretView, DomainOverwievView, DeleteDomainView, ThankYouView)
-from api.views import (
-    MyIpView, DetectIpView, NicUpdateView, AuthorizedNicUpdateView)
+    GenerateSecretView, DomainOverwievView, DeleteDomainView, ThankYouView,
+    RegistrationSuccessView
+)
 from stats.views import StatsView
+
 
 urlpatterns = patterns(
     '',
     url(r'^$', HomeView.as_view(), name="home"),
     url(r'^about/$', AboutView.as_view(), name="about"),
     url(r'^thank_you/$', ThankYouView.as_view(), name="thank_you"),
+    url(r'^welcome/$', RegistrationSuccessView.as_view(), name="welcome"),
     url(r'^legal/$',
         TemplateView.as_view(template_name='main/legal.html'), name="legal"),
     url(r'^help/$', HelpView.as_view(), name="help"),
