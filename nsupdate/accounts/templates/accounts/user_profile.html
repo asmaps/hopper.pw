@@ -3,14 +3,32 @@
 
 {% block content %}
 <h1>Hi, {{ request.user.username }}</h1>
-<h3>Your data:</h3>
 <div class="row">
-  <div class="col-lg-4">
-    <form method="post" action="">
-        {% csrf_token %}
-        {{ form|bootstrap }}
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
-  </div>
+    <div class="col-lg-4">
+        <h3>Your data</h3>
+        <div style="margin:2rem">
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top:3rem">
+    <div class="col-lg-4">
+        <h3>Change password</h3>
+        <div style="margin:2rem">
+            <a class="btn btn-primary" href="{% url 'account_change_password' %}"><i class="fa fa-ellipsis-h"></i> Change my password</a>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top:3rem">
+    <div class="col-lg-4">
+        <h3>Delete account</h3>
+        <div style="margin:2rem">
+            <a class="btn btn-danger" href="{% url 'account_delete' %}"><i class="fa fa-exclamation-triangle"></i> Delete my account</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

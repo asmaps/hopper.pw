@@ -2,6 +2,8 @@
 from django.views.generic import TemplateView, UpdateView
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 from braces.views import LoginRequiredMixin
 
@@ -24,6 +26,18 @@ class UserProfileView(LoginRequiredMixin, UpdateView):
         context = super(UserProfileView, self).get_context_data(*args, **kwargs)
         context['nav_user_profile'] = True
         return context
+
+
+class DeleteAccountView(LoginRequiredMixin, TemplateView):
+    template_name = "accounts/account_delete.html"
+
+    def post(self, *args, **kwargs):
+        user = self.request.user
+        for host in user.host_set.all():
+            host.delete()
+        user.delete()
+        logout(self.request)
+        return redirect(reverse('home'))
 
 
 class PasswordChangeView(LoginRequiredMixin, TemplateView):
