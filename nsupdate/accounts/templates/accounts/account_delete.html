@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
+        <h2>Do you really want to delete your account?</h2>
+        <p>This will delete all your hosts, associated IPs, secrets and you will not be able to log in anymore.</p>
+        <form method="post">
+            {% csrf_token %}
+            <a class="btn btn-success" href="{% url 'overview' %}">No, cancel</a>
+            <button type="submit" style="margin-left:4rem" class="btn btn-danger">Yes, delete my account</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
