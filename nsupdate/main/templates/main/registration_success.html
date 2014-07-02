@@ -25,7 +25,7 @@
         <div style="margin:2rem">
             <h4>Start using hopper.pw:</h4>
             <div style="margin:2rem">
-                <a class="btn btn-primary" href="{% url 'overview' %}"><i class="fa fa-plus"></i> Create your first host</a>
+                <a class="btn btn-primary" href="{% url 'overview' %}"><i class="fa fa-plus"></i> {% if not request.user.is_authenticated %}Log in and c{% else %}C{% endif %}reate your first host</a>
             </div>
         </div>
     </div>
