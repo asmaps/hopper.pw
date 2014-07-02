@@ -9,6 +9,7 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth.decorators import login_required
 from django.contrib.sessions.backends.db import SessionStore
 
+from main.utils import get_remote_addr
 from main.models import Host
 from stats.tasks import increment_ip_update_count
 import dns.inet
@@ -24,7 +25,7 @@ def MyIpView(request):
     :param request: django request object
     :return: HttpResponse object
     """
-    return HttpResponse(request.META['REMOTE_ADDR'], content_type="text/plain")
+    return HttpResponse(get_remote_addr(request), content_type="text/plain")
 
 
 def DetectIpView(request, secret=None):
@@ -40,7 +41,7 @@ def DetectIpView(request, secret=None):
     # so the session cookie is not received here - thus we access it via
     # the secret:
     s = SessionStore(session_key=secret)
-    ipaddr = request.META['REMOTE_ADDR']
+    ipaddr = get_remote_addr(request)
     af = dns.inet.af_for_address(ipaddr)
     key = 'ipv4' if af == dns.inet.AF_INET else 'ipv6'
     s[key] = ipaddr
@@ -164,7 +165,7 @@ def NicUpdateView(request):
         hostname = username
     ipaddr = request.GET.get('myip')
     if ipaddr is None:
-        ipaddr = request.META.get('REMOTE_ADDR')
+        ipaddr = get_remote_addr(request)
     agent = request.META.get('HTTP_USER_AGENT')
     if agent in settings.BAD_AGENTS:
         logger.info('%s - received update from bad user agent %s' % (hostname, agent, ))
@@ -193,7 +194,7 @@ def AuthorizedNicUpdateView(request):
         return Response('nohost')
     ipaddr = request.GET.get('myip')
     if not ipaddr:
-        ipaddr = request.META.get('REMOTE_ADDR')
+        ipaddr = get_remote_addr(request)
     return _update(hostname, ipaddr)
 
 

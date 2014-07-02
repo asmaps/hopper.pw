@@ -11,6 +11,7 @@ from django.core.exceptions import PermissionDenied
 import dns.inet
 import dnstools
 
+from main.utils import get_remote_addr
 from main.forms import CreateHostForm, EditHostForm, CreateDomainForm
 from main.models import Host, Domain
 
@@ -65,7 +66,7 @@ class HomeView(TemplateView):
         context['nav_home'] = True
 
         s = self.request.session
-        ipaddr = self.request.META['REMOTE_ADDR']
+        ipaddr = get_remote_addr(self.request)
         af = dns.inet.af_for_address(ipaddr)
         key = 'ipv4' if af == dns.inet.AF_INET else 'ipv6'
         s[key] = ipaddr
@@ -111,7 +112,7 @@ class OverviewView(CreateView):
         self.object.save()
         dnstools.add(
             self.object.get_fqdn(),
-            self.request.META['REMOTE_ADDR'],
+            get_remote_addr(self.request),
             origin=self.object.domain.domain
         )
         messages.add_message(self.request, messages.SUCCESS, 'Host added.')
@@ -151,7 +152,7 @@ class HostView(UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super(HostView, self).get_context_data(*args, **kwargs)
         context['nav_overview'] = True
-        context['remote_addr'] = self.request.META['REMOTE_ADDR']
+        context['remote_addr'] = get_remote_addr(self.request)
         context['hosts'] = Host.objects.filter(created_by=self.request.user)
         return context
 
