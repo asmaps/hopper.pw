@@ -165,8 +165,6 @@ def NicUpdateView(request):
     ipaddr = request.GET.get('myip')
     if ipaddr is None:
         ipaddr = request.META.get('REMOTE_ADDR')
-    if not ipaddr:
-        ipaddr = request.META.get('X-Forwarded-For')
     agent = request.META.get('HTTP_USER_AGENT')
     if agent in settings.BAD_AGENTS:
         logger.info('%s - received update from bad user agent %s' % (hostname, agent, ))
