@@ -113,13 +113,13 @@ class Host(BaseModelRequiredCreatedBy):
     def getIPv4(self):
         try:
             return dnstools.query_ns(self.get_fqdn(), 'A', origin=self.domain.domain)
-        except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers):
+        except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers, dns.resolver.Timeout):
             return ''
 
     def getIPv6(self):
         try:
             return dnstools.query_ns(self.get_fqdn(), 'AAAA', origin=self.domain.domain)
-        except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers):
+        except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers, dns.resolver.Timeout):
             return ''
 
     def poke(self):
