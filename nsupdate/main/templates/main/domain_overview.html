@@ -30,11 +30,14 @@
         <div class="col-lg-4">
             <div class="well well-sm">
                 <h3>New Domain</h3>
+                <h4><em>Feature temporarilly disabled</em></h4>
+                {% comment %}
                 <form method="post" action="">
                     {% csrf_token %}
                     {{ form|bootstrap }}
                     <button type="submit" class="btn btn-primary">Create</button>
                 </form>
+                {% endcomment %}
             </div>
         </div>
         <div class="col-lg-8">
