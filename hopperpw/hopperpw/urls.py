@@ -14,8 +14,6 @@ urlpatterns = patterns(
     url(r'^', include('main.urls')),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-from django.conf import settings
-
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += patterns(

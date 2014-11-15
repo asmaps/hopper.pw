@@ -9,7 +9,11 @@ STAT_TYPES = (
     ('ip_update_count', 'IP update count'),
 )
 
+
 class StatisticsEntry(BaseModel):
+    class Meta:
+        verbose_name_plural = 'Statistics Entries'
+
     stat_type = models.CharField(max_length=32, choices=STAT_TYPES)
     value = models.IntegerField()
 

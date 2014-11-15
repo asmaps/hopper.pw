@@ -261,3 +261,20 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/welcome/'
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/welcome/'
 # ######### END DJANGO ALLAUTH
+
+# ######### CELERY CONFIGURATION
+from celery.schedules import crontab
+BROKER_URL = 'amqp://guest:guest@rabbitmq:5672//'
+CELERY_RESULT_BACKEND = BROKER_URL
+
+CELERYBEAT_SCHEDULE = {
+    'save_user_count': {
+        'task': 'stats.tasks.save_user_count',
+        'schedule': crontab(hour=0, minute=0)
+    },
+    'save_host_count': {
+        'task': 'stats.tasks.save_host_count',
+        'schedule': crontab(hour=0, minute=0)
+    },
+}
+# ######### END CELERY CONFIGURATION
