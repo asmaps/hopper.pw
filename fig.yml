@@ -2,11 +2,25 @@ web:
   build: .
   links:
    - postgres
+   - rabbitmq
   environment:
       PYTHONUNBUFFERED: 0
   volumes:
    - .:/opt/code
   ports:
    - "8000:8000"
+celery:
+  build: .
+  command: "celery -n hopperpw.%h -A hopperpw worker --loglevel=info"
+  user: nobody
+  environment:
+    PYTHONUNBUFFERED: 0
+  volumes:
+   - .:/opt/code
+  links:
+   - rabbitmq
+   - postgres
 postgres:
   image: postgres
+rabbitmq:
+  image: dockerfile/rabbitmq

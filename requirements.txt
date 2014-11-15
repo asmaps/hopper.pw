@@ -1,3 +1,4 @@
+celery
 django-allauth
 django-bootstrap-form
 django-braces
@@ -10,10 +11,10 @@ gunicorn
 huey
 ipython
 psycopg2
+pylibmc
 pytest
 pytest-django
 pytest-pep8
 pytz
-pylibmc
 redis
 sphinx

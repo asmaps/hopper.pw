@@ -49,6 +49,7 @@ class AboutView(TemplateView):
         context['nav_about'] = True
         return context
 
+
 class ThankYouView(TemplateView):
     template_name = "main/thank_you.html"
 
