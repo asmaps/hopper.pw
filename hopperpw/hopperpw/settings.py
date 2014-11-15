@@ -1,5 +1,5 @@
 """
-Django settings for nsupdate project
+Django settings for hopperpw project
 """
 
 import django.conf.global_settings as DEFAULT_SETTINGS
@@ -122,8 +122,8 @@ MIDDLEWARE_CLASSES = (
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
-    'nsupdate.context_processors.add_settings',
-    'nsupdate.context_processors.site',
+    'hopperpw.context_processors.add_settings',
+    'hopperpw.context_processors.site',
     "allauth.account.context_processors.account",
     "allauth.socialaccount.context_processors.socialaccount",
 )
@@ -133,10 +133,10 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-ROOT_URLCONF = 'nsupdate.urls'
+ROOT_URLCONF = 'hopperpw.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'nsupdate.wsgi.application'
+WSGI_APPLICATION = 'hopperpw.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -153,7 +153,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     #nsupdate apps
-    'nsupdate',
+    'hopperpw',
     'accounts',
     'api',
     'main',
