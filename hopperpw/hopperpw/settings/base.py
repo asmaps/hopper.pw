@@ -9,6 +9,7 @@ Do not use this setting directly! Instead import these and override DATABASE set
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
+import django.conf.global_settings as DEFAULT_SETTINGS
 
 # ######### PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -19,6 +20,10 @@ SITE_ROOT = dirname(DJANGO_ROOT)
 
 # Site name:
 SITE_NAME = basename(DJANGO_ROOT)
+
+
+# Site ID:
+SITE_ID = 1
 
 # Add our project to our pythonpath, this way we don't need to type our project
 # name in our dotted import paths:
@@ -130,15 +135,12 @@ FIXTURE_DIRS = (
 
 # ######### TEMPLATE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
+    'hopperpw.context_processors.add_settings',
+    'hopperpw.context_processors.site',
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
@@ -185,7 +187,6 @@ DJANGO_APPS = (
     'allauth.socialaccount',
     'huey.djhuey',
     'bootstrapform',
-    'django_extensions',
 )
 
 # Apps specific for this project go here.

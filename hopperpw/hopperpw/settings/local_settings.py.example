@@ -4,3 +4,5 @@ DATABASES = {
         'NAME': 'hopperpw.sqlite',
     }
 }
+
+SECRET_KEY = `pwgen 64 1`
