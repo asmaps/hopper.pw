@@ -1,3 +1,4 @@
+# coding=utf-8
 from api.views import (
     MyIpView, DetectIpView, NicUpdateView, AuthorizedNicUpdateView)
 from django.conf.urls import patterns, url

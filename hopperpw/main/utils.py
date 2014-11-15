@@ -1,5 +1,6 @@
 # coding=utf-8
 
+
 def get_remote_addr(request):
     addr = request.META.get('REMOTE_ADDR')
     if not addr:
