@@ -12,6 +12,22 @@ from .base import *
 DEBUG = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    # 'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+]
+
 # ######### END DEBUG CONFIGURATION
 
 # ######### EMAIL CONFIGURATION
@@ -28,6 +44,17 @@ CACHES = {
 }
 # ######### END CACHE CONFIGURATION
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'hopperpw',
+        'USER': 'postgres',
+        'HOST': 'postgres',
+    }
+}
+
+SECRET_KEY = 'DoNotUseThisInProduction'
+
 # ######### TOOLBAR CONFIGURATION
 # See: http://django-debug-toolbar.readthedocs.org/en/latest/installation.html#explicit-setup
 INSTALLED_APPS += (
@@ -38,30 +65,6 @@ INSTALLED_APPS += (
 try:
     from .local_settings import *
 except ImportError as e:
-    raise ImproperlyConfigured(
-        'Please add a local_setting.py in the settings folder for your local untracked settings.'
-    )
-
-# ######### DATABASE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-if not DATABASES:
-    raise ImproperlyConfigured(
-        '''
-        Please add DATABASES setting to your local_settings.py.
-        See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-        Example:
-
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                'NAME': 'cinderella',
-                'USER': 'cinderella',
-                'PASSWORD': 'secret',
-                'HOST': 'localhost',
-                'PORT': '',
-            }
-        }
-        ''')
-# ######### END DATABASE CONFIGURATION
-
-SECRET_KEY = 'ohsoverysecret'
+    import logging
+    logging.info('Could not find local settings. If you want to use custom settings add a local_settings.py in the'
+                 'settings directory')

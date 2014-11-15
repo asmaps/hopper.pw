@@ -14,5 +14,6 @@ pytest
 pytest-django
 pytest-pep8
 pytz
+pylibmc
 redis
 sphinx
