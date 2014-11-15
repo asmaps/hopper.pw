@@ -1,6 +1,5 @@
 from django.db import models
 from main.models import BaseModel
-import jsonfield
 
 
 STAT_TYPES = (
