@@ -16,14 +16,14 @@ class UserProfileView(LoginRequiredMixin, UpdateView):
     fields = ['first_name', 'last_name']
     form_class = UserProfileForm
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         return self.request.user
 
     def get_success_url(self):
         return reverse('account_profile')
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(UserProfileView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(UserProfileView, self).get_context_data(**kwargs)
         context['nav_user_profile'] = True
         return context
 
@@ -43,7 +43,7 @@ class DeleteAccountView(LoginRequiredMixin, TemplateView):
 class PasswordChangeView(LoginRequiredMixin, TemplateView):
     template_name = "registration/password_change.html"
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(PasswordChangeView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(PasswordChangeView, self).get_context_data(**kwargs)
         context['nav_change_password'] = True
         return context
