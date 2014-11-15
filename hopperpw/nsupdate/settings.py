@@ -178,7 +178,7 @@ INSTALLED_APPS = (
     #'allauth.socialaccount.providers.twitter',
     #other 3rd party
     'huey.djhuey',
-    'south',
+    # 'south',
     'bootstrapform',
     #'registration',
     'django_extensions',
