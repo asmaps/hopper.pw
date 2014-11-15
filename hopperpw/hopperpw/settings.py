@@ -153,35 +153,15 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    #nsupdate apps
-    'hopperpw',
     'accounts',
     'api',
     'main',
     'stats',
-    #django-allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    #activate providers in your local_settings
-    #'allauth.socialaccount.providers.bitly',
-    #'allauth.socialaccount.providers.dropbox',
-    #'allauth.socialaccount.providers.facebook',
-    #'allauth.socialaccount.providers.github',
-    #'allauth.socialaccount.providers.google',
-    #'allauth.socialaccount.providers.instagram',
-    #'allauth.socialaccount.providers.linkedin',
-    #'allauth.socialaccount.providers.openid',
-    #'allauth.socialaccount.providers.persona',
-    #'allauth.socialaccount.providers.soundcloud',
-    #'allauth.socialaccount.providers.stackexchange',
-    #'allauth.socialaccount.providers.twitch',
-    #'allauth.socialaccount.providers.twitter',
-    #other 3rd party
     'huey.djhuey',
-    # 'south',
     'bootstrapform',
-    #'registration',
     'django_extensions',
 )
 
