@@ -2,7 +2,7 @@
 from django.db.models import Q
 from django.views.generic import TemplateView, CreateView
 from django.views.generic.edit import UpdateView, DeleteView
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.decorators import method_decorator
@@ -30,8 +30,8 @@ class GenerateSecretView(UpdateView):
             raise PermissionDenied()  # or Http404
         return obj
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(GenerateSecretView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(GenerateSecretView, self).get_context_data(**kwargs)
         context['nav_overview'] = True
         # generate secret, store it hashed and
         # return the plain secret for the context
@@ -44,8 +44,8 @@ class GenerateSecretView(UpdateView):
 class AboutView(TemplateView):
     template_name = "main/about.html"
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(AboutView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(AboutView, self).get_context_data(**kwargs)
         context['nav_about'] = True
         return context
 
@@ -53,8 +53,8 @@ class AboutView(TemplateView):
 class ThankYouView(TemplateView):
     template_name = "main/thank_you.html"
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(ThankYouView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(ThankYouView, self).get_context_data(**kwargs)
         context['nav_thank_you'] = True
         return context
 
@@ -62,8 +62,8 @@ class ThankYouView(TemplateView):
 class HomeView(TemplateView):
     template_name = "main/home.html"
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(HomeView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
         context['nav_home'] = True
 
         s = self.request.session
@@ -79,8 +79,8 @@ class HomeView(TemplateView):
 class HelpView(TemplateView):
     template_name = "main/help.html"
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(HelpView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(HelpView, self).get_context_data(**kwargs)
         context['nav_help'] = True
         return context
 
@@ -119,8 +119,8 @@ class OverviewView(CreateView):
         messages.add_message(self.request, messages.SUCCESS, 'Host added.')
         return HttpResponseRedirect(self.get_success_url())
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(OverviewView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(OverviewView, self).get_context_data(**kwargs)
         context['nav_overview'] = True
         context['hosts'] = Host.objects.filter(created_by=self.request.user)
         return context
@@ -150,8 +150,8 @@ class HostView(UpdateView):
             raise PermissionDenied()  # or Http404
         return obj
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(HostView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(HostView, self).get_context_data(**kwargs)
         context['nav_overview'] = True
         context['remote_addr'] = get_remote_addr(self.request)
         context['hosts'] = Host.objects.filter(created_by=self.request.user)
@@ -195,9 +195,9 @@ class DomainOverwievView(CreateView):
         messages.add_message(self.request, messages.SUCCESS, 'Domain added.')
         return HttpResponseRedirect(self.get_success_url())
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super(
-            DomainOverwievView, self).get_context_data(*args, **kwargs)
+            DomainOverwievView, self).get_context_data(**kwargs)
         context['nav_domains'] = True
         context['domains'] = Domain.objects.filter(
             created_by=self.request.user)
@@ -220,5 +220,3 @@ class DeleteDomainView(DeleteView):
 
     def get_success_url(self):
         return reverse('domain_overview')
-
-
