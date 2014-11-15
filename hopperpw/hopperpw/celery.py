@@ -2,12 +2,11 @@
 from __future__ import absolute_import
 
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hopperpw.settings.dev')
-
-print '==========================', os.environ['DJANGO_SETTINGS_MODULE']
 
 from celery import Celery
 from django.conf import settings
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hopperpw.settings.dev')
 
 app = Celery('hopperpw')
 

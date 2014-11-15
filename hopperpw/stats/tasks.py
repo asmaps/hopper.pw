@@ -10,8 +10,7 @@ from stats.models import StatisticsEntry
 from hopperpw.celery import app
 
 
-# @db_periodic_task(crontab(hour='0', minute='0'))
-@app.task
+@app.task()
 def save_user_count():
     try:
         last_count = StatisticsEntry.objects\
@@ -25,7 +24,6 @@ def save_user_count():
         StatisticsEntry.objects.create(stat_type='user_count', value=count)
 
 
-# @db_periodic_task(crontab(hour='0', minute='0'))
 @app.task
 def save_host_count():
     try:
@@ -40,7 +38,6 @@ def save_host_count():
         StatisticsEntry.objects.create(stat_type='host_count', value=count)
 
 
-# @db_task()
 @app.task
 def increment_ip_update_count():
     today = datetime.now(pytz.utc)
