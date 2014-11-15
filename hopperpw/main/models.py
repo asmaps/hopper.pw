@@ -1,17 +1,20 @@
-from django.db import models
+# coding=utf-8
+import base64
+import binascii
+from datetime import datetime
+import dns.resolver
+import re
+
+from django.conf import settings
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-from django.conf import settings
+from django.db import models
 from django.db.models.signals import post_delete
-from django.contrib.auth.hashers import make_password
-from main import dnstools
-import dns.resolver
-from datetime import datetime
 
-import re
-import base64
-import binascii
+from main import dnstools
+
 
 class BaseModel(models.Model):
     last_update = models.DateTimeField(auto_now=True)
@@ -143,6 +146,7 @@ class Host(BaseModelRequiredCreatedBy):
 def post_delete_host(sender, **kwargs):
     obj = kwargs['instance']
     dnstools.delete(obj.get_fqdn(), origin=obj.domain.domain)
+
 
 post_delete.connect(post_delete_host, sender=Host)
 

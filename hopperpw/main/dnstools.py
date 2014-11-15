@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Misc. DNS related code: query, dynamic update, etc.
 
