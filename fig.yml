@@ -1,0 +1,12 @@
+web:
+  build: .
+  links:
+   - postgres
+  environment:
+      PYTHONUNBUFFERED: 0
+  volumes:
+   - .:/opt/code
+  ports:
+   - "8000:8000"
+postgres:
+  image: postgres
