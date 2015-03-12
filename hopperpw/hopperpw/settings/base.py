@@ -264,7 +264,7 @@ ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/welcome/'
 
 # ######### CELERY CONFIGURATION
 from celery.schedules import crontab
-BROKER_URL = 'amqp://guest:guest@rabbitmq:5672//'
+BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = BROKER_URL
 
 CELERYBEAT_SCHEDULE = {

@@ -1,4 +1,4 @@
-celery
+celery[redis]
 django-allauth
 django-bootstrap-form
 django-braces
