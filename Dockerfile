@@ -1,4 +1,4 @@
-FROM aexea/django-base
+FROM aexea/django-base-py2
 MAINTAINER Arne Schauf
 
 WORKDIR hopperpw

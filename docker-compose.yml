@@ -19,7 +19,7 @@ celery:
   volumes:
    - .:/opt/code
   links:
-   - rabbitmq
+   - redis
    - postgres
 postgres:
   image: postgres
