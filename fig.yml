@@ -2,7 +2,7 @@ web:
   build: .
   links:
    - postgres
-   - rabbitmq
+   - redis
   entrypoint: './manage.py'
   command: 'runserver 0.0.0.0:8000'
   environment:
