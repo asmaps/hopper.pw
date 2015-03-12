@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd hopperpw
 python3 manage.py migrate --noinput
 if [ "$1" = 'worker' ]; then
     celery -n hopperpw.%h -A project worker -B --loglevel=info
