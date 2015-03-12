@@ -3,6 +3,8 @@ web:
   links:
    - postgres
    - rabbitmq
+  entrypoint: './manage.py'
+  command: 'runserver 0.0.0.0:8000'
   environment:
       PYTHONUNBUFFERED: 0
   volumes:
@@ -11,17 +13,7 @@ web:
    - "8000:8000"
 celery:
   build: .
-  command: "celery -n hopperpw.%h -A hopperpw worker --loglevel=info"
-  environment:
-    PYTHONUNBUFFERED: 0
-  volumes:
-   - .:/opt/code
-  links:
-   - rabbitmq
-   - postgres
-celerybeat:
-  build: .
-  command: "celery -A hopperpw beat --loglevel=info"
+  command: "worker"
   environment:
     PYTHONUNBUFFERED: 0
   volumes:
@@ -31,5 +23,5 @@ celerybeat:
    - postgres
 postgres:
   image: postgres
-rabbitmq:
-  image: dockerfile/rabbitmq
+redis:
+  image: redis

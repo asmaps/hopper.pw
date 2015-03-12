@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="320"
+   height="210"
+   id="svg2">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(3.0000004,-845.3622)"
+     id="layer1">
+    <g
+       transform="matrix(1.1854268,0,0,1.1868719,35.191016,-303.79017)"
+       id="g2991">
+      <g
+         id="g2996">
+        <path
+           d="m 86.281261,1039.0795 0,7 29.999999,0 30,-28 48.48528,0 m -108.485279,-35.00006 0,-7 29.999999,0 30,28.00006 27.5,0 m -148.737436,0 21.237437,0 15,-21.00006 25,0 5,3 0,50.00006 -5,3 -25,0 -15,-21 -40.0000005,0"
+           id="path2989"
+           style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           x="153.03125"
+           y="1139.2699"
+           id="text3763"
+           xml:space="preserve"
+           style="font-size:8.43578053px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+             x="153.03125"
+             y="1139.2699"
+             id="tspan3765"
+             style="font-size:6.74862432px">https://www.hopper.pw/</tspan></text>
+      </g>
+    </g>
+    <text
+       x="29.265549"
+       y="980.47717"
+       id="text2987"
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="29.265549"
+         y="980.47717"
+         id="tspan2989"
+         style="font-size:48px">hopper.pw</tspan></text>
+    <text
+       x="67.791573"
+       y="1013.2241"
+       id="text2991"
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="67.791573"
+         y="1013.2241"
+         id="tspan2993"
+         style="font-size:22px;font-style:italic;line-height:125%;-inkscape-font-specification:Sans Italic">Stay connected</tspan></text>
+    <text
+       x="3.9828422"
+       y="1049.3425"
+       id="text3767"
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="3.9828422"
+         y="1049.3425"
+         id="tspan3769"
+         style="font-size:8px">Free and open source dynamic DNS</tspan></text>
+  </g>
+</svg>
