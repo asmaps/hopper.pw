@@ -13,7 +13,8 @@ web:
    - "8000:8000"
 celery:
   build: .
-  command: "worker"
+  entrypoint: "celery"
+  command: "-n hopperpw.%h -A hopperpw worker -B --loglevel=info"
   environment:
     PYTHONUNBUFFERED: 0
   volumes:
