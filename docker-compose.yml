@@ -1,5 +1,6 @@
 web:
   build: .
+  user: uid1000
   links:
    - postgres
    - redis
@@ -13,6 +14,7 @@ web:
    - "8000:8000"
 celery:
   build: .
+  user: uid1000
   entrypoint: "celery"
   command: "-n hopperpw.%h -A hopperpw worker -B --loglevel=info"
   environment:
