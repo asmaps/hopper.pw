@@ -48,7 +48,7 @@ def DetectIpView(request, secret=None):
     s.save()
     with open(os.path.join(settings.STATIC_ROOT, "1px.gif"), "rb") as f:
         image_data = f.read()
-    return HttpResponse(image_data, mimetype="image/png")
+    return HttpResponse(image_data, content_type="image/png")
 
 
 def basic_challenge(realm, content='Authorization Required'):
