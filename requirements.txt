@@ -18,3 +18,4 @@ pytest-pep8
 pytz
 redis
 sphinx
+raven
