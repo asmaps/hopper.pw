@@ -1,1 +1,21 @@
--r ./requirements.d/dev.txt
+celery[redis]
+django-allauth
+django-bootstrap-form
+django-braces
+django-debug-toolbar
+django-extensions
+django-jsonfield
+django<1.8
+dnspython
+gunicorn
+huey
+ipython
+psycopg2
+pylibmc
+pytest
+pytest-django
+pytest-pep8
+pytz
+redis
+sphinx
+raven

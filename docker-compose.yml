@@ -1,0 +1,30 @@
+web:
+  build: .
+  user: uid1000
+  links:
+   - postgres
+   - redis
+  entrypoint: './manage.py'
+  command: 'runserver 0.0.0.0:8000'
+  environment:
+      PYTHONUNBUFFERED: 0
+  volumes:
+   - .:/opt/code
+  ports:
+   - "8000:8000"
+celery:
+  build: .
+  user: uid1000
+  entrypoint: "celery"
+  command: "-n hopperpw.%h -A hopperpw worker -B --loglevel=info"
+  environment:
+    PYTHONUNBUFFERED: 0
+  volumes:
+   - .:/opt/code
+  links:
+   - redis
+   - postgres
+postgres:
+  image: postgres
+redis:
+  image: redis
