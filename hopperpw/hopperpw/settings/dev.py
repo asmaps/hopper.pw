@@ -26,6 +26,8 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
 ]
 
+INTERNAL_IPS = ['172.17.42.1']
+
 # ######### END DEBUG CONFIGURATION
 
 # ######### EMAIL CONFIGURATION
