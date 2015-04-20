@@ -111,14 +111,14 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                <div class="col-sm-6 text-muted credit">
-                Sourcecode available at <a href="https://github.com/asmaps/hopper.pw">GitHub</a>
-                | <a href="{% url 'legal' %}">Imprint</a>
-                </div>
-                <div class="col-sm-6 text-right">
-                    Visit hopper.pw on <a href="https://www.facebook.com/hopper.pw">Facebook</a>
-                    and <a href="https://twitter.com/hopper_dyndns">Twitter</a>
-                </div>
+                    <div class="col-sm-6 text-muted credit">
+                        Sourcecode available at <a href="https://github.com/asmaps/hopper.pw"><i class="fa fa-github"></i> GitHub</a>
+                        | <a href="{% url 'legal' %}">Imprint</a>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        Visit hopper.pw on <a href="https://www.facebook.com/hopper.pw"><i class="fa fa-facebook"></i> Facebook</a>
+                        and <a href="https://twitter.com/hopper_dyndns"><i class="fa fa-twitter"></i> Twitter</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,12 +127,12 @@
             <img id="v4_img" />
             <img id="v6_img" />
             <script type="text/javascript">
-                function insert_src() {
-                    $('#v4_img').attr('src', "//{{ WWW_IPV4_HOST }}/detectip/{{ request.session.session_key }}/");
-                    $('#v6_img').attr('src', "//{{ WWW_IPV6_HOST }}/detectip/{{ request.session.session_key }}/");
-                };
+function insert_src() {
+    $('#v4_img').attr('src', "//{{ WWW_IPV4_HOST }}/detectip/{{ request.session.session_key }}/");
+    $('#v6_img').attr('src', "//{{ WWW_IPV6_HOST }}/detectip/{{ request.session.session_key }}/");
+};
 $(setTimeout("insert_src()", 1000));
-</script>
+            </script>
         </div>
         {% if ENABLE_TRACKING %}
         {% include "tracking.html" %}
