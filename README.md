@@ -8,10 +8,6 @@ The basic software was originally developed during DjangoDash 2013 by Arne
 Schauf, Fabian Faessler and Thomas Waldmann. Hopper.pw was a fork after the dash
 to continue developing and add new features.
 
-Hopper.pw is is intended to be self hostable,
-but there is a free service on http://www.hopper.pw/ where you can add your own
-domains and don't need to mess around with hosting it on your own.
-
 
 # Features (Frontend)
 
