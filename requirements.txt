@@ -10,6 +10,7 @@ dnspython
 gunicorn
 huey
 ipython
+opbeat
 psycopg2
 pylibmc
 pytest
