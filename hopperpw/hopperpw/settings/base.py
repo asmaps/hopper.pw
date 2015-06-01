@@ -106,6 +106,8 @@ STATICFILES_FINDERS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # please do set this in dev.py, test.py, prod.py, local_settings.py ...you get the drift
 SECRET_KEY = None
+
+SESSION_COOKIE_SECURE = True
 # ######### END SECRET CONFIGURATION
 
 
