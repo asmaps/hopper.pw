@@ -63,6 +63,7 @@ def ns_update_key_validator(value):
 
 UPDATE_ALGORITHMS = (
     ('HMAC_SHA512', 'HMAC_SHA512'),
+    ('HMAC_MD5', 'HMAC_MD5'),
 )
 
 
