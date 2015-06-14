@@ -5,7 +5,7 @@ from main.models import Host, Domain, BlacklistedDomain
 
 
 class HostAdmin(admin.ModelAdmin):
-    search_fields = ['subdomain', 'domain', 'created_by__username']
+    search_fields = ['subdomain', 'domain']
     list_fields = ['get_fqdn', 'created_by']
 
 admin.site.register(BlacklistedDomain)
