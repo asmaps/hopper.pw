@@ -1,3 +1,7 @@
+# Free service shutdown notice
+
+The free service on https://www.hopper.pw is no longer available. For more info see this page: http://asmaps.github.io/hopper-pages/
+
 # About hopper.pw
 
 hopper.pw is the idea of a really simple single purpose dynamic dns service.
