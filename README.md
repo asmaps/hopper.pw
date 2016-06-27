@@ -59,4 +59,4 @@ For production environments I prefer gunicorn with nginx and postgresql as DB.
 For the moment please use google for instructions how to set it up.
 
 
-[Debian-Install-Guide.md](Install guide for debian) thx @RedSunEmpire for contributing!
+[Install guide for debian](https://github.com/asmaps/hopper.pw/blob/master/Debian-Install-Guide.md) thx [@RedSunEmpire](https://github.com/RedSunEmpire) for contributing!
