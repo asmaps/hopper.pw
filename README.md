@@ -58,3 +58,5 @@ From time to time execute this again to install the newest dependencies.
 For production environments I prefer gunicorn with nginx and postgresql as DB.  
 For the moment please use google for instructions how to set it up.
 
+
+[Debian-Install-Guide.md](Install guide for debian) thx @RedSunEmpire for contributing!
