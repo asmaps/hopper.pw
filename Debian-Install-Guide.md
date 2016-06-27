@@ -1,4 +1,4 @@
-Complete guide to install && configure Hopper.pw on Debian (and Ubuntu) server by j0eblack ( @RedSunEmpire ).
+Complete guide to install && configure Hopper.pw on Debian (and Ubuntu) server by j0eblack ( [@RedSunEmpire](https://github.com/RedSunEmpire) ).
 
 First things first, clone the repo to your working direcroy.
 
